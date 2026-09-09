@@ -169,22 +169,26 @@ a:hover {
   background: var(--ocean);
 }
 
-.profile-wrap {
+.hero-photo {
   justify-self: end;
-  width: min(100%, 340px);
+  width: min(100%, 380px);
+  margin: 0;
 }
 
-.profile-photo {
+.hero-photo img {
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-  object-position: center;
-  padding: 8px;
-  border: 7px solid var(--white);
-  border-radius: 50%;
-  background: var(--ice);
+  height: auto;
+  border: 6px solid var(--white);
+  border-radius: var(--radius);
   box-shadow: var(--shadow);
+}
+
+.hero-photo figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-align: right;
 }
 
 .section {
@@ -315,9 +319,13 @@ a:hover {
     gap: 32px;
   }
 
-  .profile-wrap {
+   .hero-photo {
     justify-self: start;
-    width: min(72vw, 290px);
+    width: min(100%, 420px);
+  }
+
+  .hero-photo figcaption {
+    text-align: left;
   }
 
   .theme-grid {
