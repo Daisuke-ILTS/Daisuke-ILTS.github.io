@@ -179,7 +179,7 @@ a:hover {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center 35%;
   border: 7px solid var(--white);
   border-radius: 18px;
   box-shadow: var(--shadow);
