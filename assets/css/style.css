@@ -177,11 +177,11 @@ a:hover {
 .profile-photo {
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: center 32%;
+  object-position: center 25%;
   border: 7px solid var(--white);
-  border-radius: 50%;
+  border-radius: 18px;
   box-shadow: var(--shadow);
 }
 
