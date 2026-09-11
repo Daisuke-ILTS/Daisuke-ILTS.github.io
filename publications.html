@@ -9,8 +9,21 @@
     name="description"
     content="平野大輔の査読付き学術論文一覧。"
   >
+
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
+    /* =========================================================
+       ページヒーローの背景にイラストを美しくブレンド
+       ========================================================= */
+    .page-hero--pubs {
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(234, 246, 248, 0.84), rgba(255, 255, 255, 0.90)),
+        url("assets/images/shirase-illustration.jpg") center 40% / cover no-repeat;
+      padding: 84px 0 76px;
+      border-bottom: 1px solid var(--line);
+    }
+
     /* In press用（番号なしのフラットなリスト） */
     .in-press-list {
       list-style: disc;
@@ -52,6 +65,11 @@
     .pub-press a:hover {
       color: var(--navy);
     }
+    @media (max-width: 760px) {
+      .page-hero--pubs {
+        padding: 60px 0 52px;
+      }
+    }
   </style>
 </head>
 
@@ -64,13 +82,15 @@
         <a href="index.html">ホーム</a>
         <a href="index.html#about">研究紹介</a>
         <a href="publications.html" aria-current="page">研究業績</a>
+        <a href="projects.html">プロジェクト</a>
+        <a href="outreach.html">アウトリーチ</a>
         <a href="index.html#contact">連絡先</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-hero page-hero--pubs">
       <div class="container">
         <p class="eyebrow">Publications</p>
         <h1 class="page-title">研究業績</h1>
@@ -403,7 +423,7 @@
 
             <ol class="publication-list">
               <li value="11">
-                Ito, M., K. I. Ohshima, Y. Fukamachi, <strong><u>D. Hirano</u></strong>,相互作用 A. R. Mahoney, J. Jones, T. Takatsuka, and H. Eicken (2019).
+                Ito, M., K. I. Ohshima, Y. Fukamachi, <strong><u>D. Hirano</u></strong>, A. R. Mahoney, J. Jones, T. Takatsuka, and H. Eicken (2019).
                 Favorable Conditions for Suspension Freezing in an Arctic Coastal Polynya.
                 <em>Journal of Geophysical Research: Oceans</em>, 124(12), 8701–8719,
                 <a class="pub-doi" href="https://doi.org/10.1029/2019JC015536" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2019JC015536</a>.
