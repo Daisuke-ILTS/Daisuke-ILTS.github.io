@@ -34,6 +34,91 @@
       gap: 48px;
     }
 
+    /* =========================================================
+       News & Topics スタイル（ファーストビュー直下のスマートな見せ方）
+       ========================================================= */
+    .section--news {
+      padding: 48px 0;
+    }
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .news-item {
+      display: grid;
+      grid-template-columns: auto auto 1fr;
+      align-items: baseline;
+      gap: 16px;
+      padding: 14px 18px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(11, 45, 69, 0.03);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .news-item:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(11, 45, 69, 0.06);
+    }
+    .news-date {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .news-tag {
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .tag--paper {
+      background: #e3f2fd;
+      color: #0d47a1;
+      border: 1px solid #bbdefb;
+    }
+    .tag--event {
+      background: #e8f5e9;
+      color: #1b5e20;
+      border: 1px solid #c8e6c9;
+    }
+    .tag--info {
+      background: #f3e5f5;
+      color: #4a148c;
+      border: 1px solid #e1bee7;
+    }
+    .news-content {
+      font-size: 0.95rem;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    .news-content a {
+      color: var(--navy);
+      text-decoration: underline;
+      text-underline-offset: 0.16em;
+    }
+    .news-content a:hover {
+      color: var(--ocean);
+    }
+    @media (max-width: 760px) {
+      .section--news {
+        padding: 36px 0;
+      }
+      .news-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 12px 14px;
+      }
+      .news-item-meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+
     .theme-stack {
       display: flex;
       flex-direction: column;
@@ -177,6 +262,7 @@
       <a class="site-name" href="index.html">ホーム</a>
 
       <nav class="site-nav" aria-label="メインメニュー">
+        <a href="#news">News &amp; Topics</a>
         <a href="#about">研究紹介</a>
         <a href="#research">研究テーマ</a>
         <a href="publications.html">論文リスト</a>
@@ -217,7 +303,40 @@
       </div>
     </section>
 
-    <!-- 研究紹介セクション（改行なしの1段落構成） -->
+    <!-- News & Topics セクション（研究紹介の前に配置） -->
+    <section id="news" class="section section-alt section--news">
+      <div class="container">
+        <h2 class="section-heading">News &amp; Topics</h2>
+
+        <div class="news-list">
+          <article class="news-item">
+            <span class="news-date">2026.09</span>
+            <span class="news-tag tag--info">お知らせ</span>
+            <div class="news-content">
+              個人ウェブサイトを開設しました。
+            </div>
+          </article>
+
+          <article class="news-item">
+            <span class="news-date">2026.09</span>
+            <span class="news-tag tag--paper">論文出版</span>
+            <div class="news-content">
+              共著論文（Watanabe et al.）が <em>Nature Communications</em> 誌に出版されました（DOI直リンク付き）。<a href="https://www.nature.com/articles/s41467-026-77441-z" target="_blank" rel="noopener noreferrer">nature</a>
+            </div>
+          </article>
+
+          <article class="news-item">
+            <span class="news-date">2026.07.04</span>
+            <span class="news-tag tag--event">イベント</span>
+            <div class="news-content">
+              日本科学未来館にて「<a href="https://www.miraikan.jst.go.jp/events/202607044597.html" target="_blank" rel="noopener noreferrer">研究者トーク＆南極ライブ中継！ 南極観測隊の仕事と生活</a>」に登壇しました（未来館公式イベントページへのリンク付き）。
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 研究紹介セクション -->
     <section id="about" class="section">
       <div class="container">
         <h2 class="section-heading">研究紹介</h2>
