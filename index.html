@@ -14,14 +14,24 @@
   <style>
     /* =========================================================
        1. ヘッダー（ヒーローエリア）のビジュアルアクセント
-       しらせイラストを背景に薄くブレンドし、文字・写真を美しく際立たせる
+       背景イラストの存在感を高め、プロフィール写真をやや小ぶりに調整
        ========================================================= */
     .hero {
       position: relative;
       background:
-        linear-gradient(135deg, rgba(234, 246, 248, 0.88), rgba(255, 255, 255, 0.93)),
+        linear-gradient(135deg, rgba(234, 246, 248, 0.82), rgba(255, 255, 255, 0.88)),
         url("assets/images/shirase-illustration.jpg") center 35% / cover no-repeat;
       border-bottom: 1px solid var(--line);
+    }
+
+    /* 背景のイラストを見せつつバランスをとるため、写真をやや小さく（幅360px上限） */
+    .hero-photo {
+      width: min(100%, 360px);
+      justify-self: end;
+    }
+    .hero-grid {
+      grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr);
+      gap: 48px;
     }
 
     .theme-stack {
@@ -70,6 +80,9 @@
       color: var(--navy);
     }
     @media (max-width: 760px) {
+      .hero-photo {
+        width: min(100%, 300px);
+      }
       .theme-card--full {
         padding: 24px 20px;
       }
@@ -135,11 +148,11 @@
 
     /* =========================================================
        2. フッターのビジュアルアクセント
-       フッター直上にイラストのパノラマ帯を配し、サイトをドラマチックに締めくくる
+       文言なし・純粋なイラストのパノラマ帯
        ========================================================= */
     .footer-visual-accent {
       position: relative;
-      height: 180px;
+      height: 190px;
       background: url("assets/images/shirase-illustration.jpg") center 60% / cover no-repeat;
       border-top: 1px solid var(--line);
       overflow: hidden;
@@ -148,20 +161,11 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(246, 250, 251, 0.2) 0%, rgba(11, 45, 69, 0.85) 100%);
-    }
-    .footer-visual-caption {
-      position: absolute;
-      right: 24px;
-      bottom: 12px;
-      z-index: 2;
-      font-size: 0.78rem;
-      color: rgba(255, 255, 255, 0.85);
-      letter-spacing: 0.05em;
+      background: linear-gradient(to bottom, rgba(246, 250, 251, 0.15) 0%, rgba(11, 45, 69, 0.85) 100%);
     }
     @media (max-width: 760px) {
       .footer-visual-accent {
-        height: 120px;
+        height: 130px;
       }
     }
   </style>
@@ -184,7 +188,7 @@
   </header>
 
   <main>
-    <!-- ヘッダー（ヒーロー）：イラストを背景に薄くブレンド -->
+    <!-- ヘッダー（ヒーロー）：イラストを背景に敷き、写真をやや小さく配置 -->
     <section class="hero">
       <div class="container hero-grid">
         <div>
@@ -212,17 +216,13 @@
       </div>
     </section>
 
-    <!-- 研究紹介セクション -->
+    <!-- 研究紹介セクション（改行なしの1段落構成） -->
     <section id="about" class="section">
       <div class="container">
         <h2 class="section-heading">研究紹介</h2>
 
         <p class="lead">
-          海洋物理学的アプローチから、北極・南極域における海洋と氷の相互作用を研究しています。極域では、海洋・海氷・氷床に急激な変化が生じていますが、特に、海洋が氷床や海氷を融かすメカニズム、そして極域特有の水塊形成・変質プロセスおよび海洋循環の解明に力を入れています。
-        </p>
-
-        <p class="lead" style="margin-top: 18px;">
-          現場観測を研究の核としつつ、数値実験の結果や衛星観測プロダクトも組み合わせることで、現象の多角的・包括的な理解を目指しています。
+          海洋物理学的アプローチから、北極・南極域における海洋と氷の相互作用を研究しています。極域では、海洋・海氷・氷床に急激な変化が生じていますが、特に、海洋が氷床や海氷を融かすメカニズム、そして極域特有の水塊形成・変質プロセスおよび海洋循環の解明に力を入れています。現場観測を研究の核としつつ、数値実験の結果や衛星観測プロダクトも組み合わせることで、現象の多角的・包括的な理解を目指しています。
         </p>
       </div>
     </section>
@@ -365,10 +365,8 @@
     </section>
   </main>
 
-  <!-- フッター直上のパノラマ・ビジュアルアクセント帯 -->
-  <aside class="footer-visual-accent" aria-label="フッタービジュアルアクセント">
-    <span class="footer-visual-caption">南極観測船「しらせ」と海氷域</span>
-  </aside>
+  <!-- フッター直上のパノラマ・ビジュアルアクセント帯（文字なし） -->
+  <aside class="footer-visual-accent" aria-label="フッタービジュアルアクセント"></aside>
 
   <footer class="site-footer">
     <div class="container">
