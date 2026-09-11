@@ -7,93 +7,126 @@
   <title>プロジェクト｜平野大輔</title>
   <meta
     name="description"
-    content="北海道大学低温科学研究所・平野大輔が参画する大型科研費プロジェクト、南極地域観測隊（JARE）重点研究観測、北極研究プロジェクト（ArCS/ArCS II）等の一覧。"
+    content="平野大輔が代表・分担を務める主な研究プロジェクト・獲得競争的資金（科研費等）一覧。"
   >
 
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    .project-section-title {
-      margin: 3.2rem 0 1.25rem;
-      color: var(--navy);
-      font-size: 1.55rem;
-      border-bottom: 2px solid var(--ice);
-      padding-bottom: 0.5rem;
+    /* =========================================================
+       ページヒーローの背景にイラストを美しくブレンド
+       ========================================================= */
+    .page-hero--projects {
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(234, 246, 248, 0.84), rgba(255, 255, 255, 0.90)),
+        url("assets/images/shirase-illustration.jpg") center 40% / cover no-repeat;
+      padding: 84px 0 76px;
+      border-bottom: 1px solid var(--line);
     }
-    .project-section-title:first-of-type {
-      margin-top: 1.5rem;
+
+    /* プロジェクト一覧用スタイル */
+    .project-category {
+      margin-bottom: 3.5rem;
+    }
+    .project-category h2 {
+      font-size: 1.45rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--ocean);
+      padding-bottom: 0.5rem;
+      margin: 0 0 1.8rem;
     }
     .project-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
-    .project-card {
-      padding: 24px 28px;
+    .project-item {
       background: var(--white);
       border: 1px solid var(--line);
-      border-left: 5px solid var(--ocean);
-      border-radius: 10px;
-      margin-bottom: 1.4rem;
-      box-shadow: 0 4px 16px rgba(11, 45, 69, 0.04);
-      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      box-shadow: 0 4px 14px rgba(11, 45, 69, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .project-card:hover {
-      box-shadow: 0 8px 24px rgba(11, 45, 69, 0.08);
-      border-color: var(--ocean);
+    .project-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(11, 45, 69, 0.08);
     }
-    .project-tag {
+    .project-item-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .project-period {
       display: inline-block;
-      padding: 3px 10px;
-      background: var(--ice);
+      font-size: 0.88rem;
+      font-weight: 700;
       color: var(--ocean);
-      font-size: 0.82rem;
-      font-weight: 700;
-      border-radius: 999px;
-      margin-bottom: 0.6rem;
-      letter-spacing: 0.03em;
+      background: var(--ice);
+      padding: 3px 10px;
+      border-radius: 6px;
     }
-    .project-name {
-      font-size: 1.25rem;
+    .project-role-badge {
+      display: inline-block;
+      font-size: 0.8rem;
       font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+    .role--rep {
+      background: #e3f2fd;
+      color: #0d47a1;
+      border: 1px solid #bbdefb;
+    }
+    .role--co {
+      background: #f5f5f5;
+      color: #424242;
+      border: 1px solid #e0e0e0;
+    }
+    .project-type {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .project-title {
+      font-size: 1.2rem;
       color: var(--navy);
-      margin: 0 0 0.5rem;
-      line-height: 1.45;
+      margin: 0 0 10px;
+      line-height: 1.5;
     }
-    .project-name a {
+    .project-title a {
       color: var(--navy);
       text-decoration: underline;
       text-underline-offset: 0.18em;
     }
-    .project-name a:hover {
+    .project-title a:hover {
       color: var(--ocean);
-    }
-    .project-sub {
-      font-size: 1.02rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin: 0 0 0.6rem;
-      line-height: 1.55;
     }
     .project-meta {
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin: 0 0 0.6rem;
+      font-size: 0.95rem;
+      color: var(--ink);
+      margin: 0 0 10px;
       line-height: 1.6;
     }
-    .project-link-wrap {
-      margin-top: 0.75rem;
-      font-size: 0.92rem;
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.75;
+      text-align: justify;
     }
-    .project-link-wrap a {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      color: var(--ocean);
-      font-weight: 700;
-      text-decoration: none;
-    }
-    .project-link-wrap a:hover {
-      text-decoration: underline;
+    @media (max-width: 760px) {
+      .page-hero--projects {
+        padding: 60px 0 52px;
+      }
+      .project-item {
+        padding: 20px;
+      }
+      .project-title {
+        font-size: 1.08rem;
+      }
     }
   </style>
 </head>
@@ -104,121 +137,141 @@
       <a class="site-name" href="index.html">平野 大輔</a>
 
       <nav class="site-nav" aria-label="メインメニュー">
+        <a href="index.html">ホーム</a>
         <a href="index.html#about">研究紹介</a>
-        <a href="index.html#research">研究テーマ</a>
-        <a href="publications.html">研究業績・研究費リスト</a>
+        <a href="publications.html">研究業績</a>
         <a href="projects.html" aria-current="page">プロジェクト</a>
-        <a href="index.html#links">外部リンク</a>
+        <a href="outreach.html">アウトリーチ</a>
         <a href="index.html#contact">連絡先</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- 背景にイラストをブレンドしたヘッダー -->
+    <section class="page-hero page-hero--projects">
+      <div class="container">
+        <p class="eyebrow">Research Projects &amp; Grants</p>
+        <h1 class="page-title">プロジェクト</h1>
+        <p class="page-lead">現在推進中および過去に参画した主な研究課題・獲得競争的資金（科研費等）</p>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
-        <h1 class="section-heading">プロジェクト</h1>
-        <p class="lead">
-          参画中／参画した大型科学研究プロジェクト、南極地域観測事業（JARE）重点研究観測、北極域研究推進プロジェクト（ArCS / ArCS II）などの観測・研究プロジェクト一覧です。
-        </p>
+        <!-- 進行中のプロジェクト -->
+        <section class="project-category">
+          <h2>進行中のプロジェクト</h2>
 
-        <!-- 大型科研費プロジェクト -->
-        <h2 class="project-section-title">大型科研費プロジェクト</h2>
-        <ul class="project-list">
-          <li class="project-card">
-            <span class="project-tag">2024〜2028年度</span>
-            <div class="project-name">
-              学術変革領域研究（A）「グローバル南極学：大変化する氷床と地球環境の連鎖をつなぐ」
-            </div>
-            <div class="project-meta">
-              計画研究班 代表（平野 大輔）「温暖化時代の南極氷床―海洋相互作用の解明」
-            </div>
-            <div class="project-link-wrap">
-              <a href="https://glaces.lowtem.hokudai.ac.jp/" target="_blank" rel="noopener noreferrer">
-                プロジェクト公式サイト（glaces.lowtem.hokudai.ac.jp） →
-              </a>
-            </div>
-          </li>
+          <div class="project-list">
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2024年度 〜 2028年度</span>
+                <span class="project-role-badge role--rep">研究代表者</span>
+                <span class="project-type">日本学術振興会 科学研究費助成事業 基盤研究(B)</span>
+              </div>
+              <h3 class="project-title">
+                <a href="https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-24K03069/" target="_blank" rel="noopener noreferrer">
+                  東南極最大級トッテン氷河への海洋熱供給の実態・変動性の解明
+                </a>
+              </h3>
+              <p class="project-meta">課題番号：24K03069／研究代表者：<strong><u>平野 大輔</u></strong></p>
+              <p class="project-desc">
+                東南極最大級のトッテン氷河域において、周辺海洋から棚氷下へと供給される海洋熱の実態とその変動性を解明するため、現場リピート観測および長期係留観測を継続し、底面融解プロセスを左右する熱輸送メカニズムの定量評価を進めています。
+              </p>
+            </article>
 
-          <li class="project-card">
-            <span class="project-tag">2017〜2021年度</span>
-            <div class="project-name">
-              新学術領域研究（研究領域提案型）「熱―水―物質の巨大リザーバ：全球環境変動を駆動する南大洋・南極氷床」
-            </div>
-            <div class="project-meta">
-              公募研究 代表（平野 大輔）「東南極トッテン棚氷域における氷床海洋相互作用の観測研究」
-            </div>
-            <div class="project-link-wrap">
-              <a href="http://grantarctic.jp/" target="_blank" rel="noopener noreferrer">
-                プロジェクト公式サイト（grantarctic.jp） →
-              </a>
-            </div>
-          </li>
-        </ul>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2024年度 〜 2028年度</span>
+                <span class="project-role-badge role--rep">計画研究代表者</span>
+                <span class="project-type">日本学術振興会 科学研究費助成事業 学術変革領域研究(A)「グローバル南極学」計画研究</span>
+              </div>
+              <h3 class="project-title">
+                <a href="https://kaken.nii.ac.jp/ja/grant/KAKENHI-PLANNED-24H02340/" target="_blank" rel="noopener noreferrer">
+                  温暖化時代の南極氷床―海洋相互作用の解明
+                </a>
+              </h3>
+              <p class="project-meta">課題番号：24H02340（領域番号：24H02339）／計画研究代表者：<strong><u>平野 大輔</u></strong></p>
+              <p class="project-desc">
+                「グローバル南極学」におけるA01計画研究として、東南極トッテン氷河域を中心に、現場観測・衛星観測・数値モデリングを融合させ、温暖化に伴う急激な氷床質量変化を引き起こす海洋・海氷・氷床相互作用メカニズムの実態解明と全球気候への波及効果を追究しています。
+              </p>
+            </article>
 
-        <!-- JARE 重点研究観測プロジェクト -->
-        <h2 class="project-section-title">JARE 重点研究観測プロジェクト</h2>
-        <ul class="project-list">
-          <li class="project-card">
-            <span class="project-tag">2022〜2027年度</span>
-            <div class="project-name">
-              国立極地研究所 第Ⅹ期6か年計画 重点研究観測
-            </div>
-            <div class="project-sub">
-              「サブテーマ2：氷床―海氷―海洋結合システムの統合研究観測から探る東南極氷床融解メカニズムと物質循環変動」
-            </div>
-            <div class="project-meta">
-              PI：溝端 浩平（東京海洋大学）
-            </div>
-            <div class="project-link-wrap">
-              <a href="https://www.nipr.ac.jp/antarctic/science-plan10/juuten04.html" target="_blank" rel="noopener noreferrer">
-                プロジェクト詳細（国立極地研究所） →
-              </a>
-            </div>
-          </li>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2026年度 〜 2030年度</span>
+                <span class="project-role-badge role--co">研究分担者</span>
+                <span class="project-type">日本学術振興会 科学研究費助成事業 基盤研究(A)</span>
+              </div>
+              <h3 class="project-title">
+                <a href="https://kaken.nii.ac.jp/report/KAKENHI-PROJECT-26H02560/26H025602026saitaku_shoken/" target="_blank" rel="noopener noreferrer">
+                  東南極氷床融解を駆動する海洋熱輸送とその変動要因の全容解明
+                </a>
+              </h3>
+              <p class="project-meta">課題番号：26H02560／研究代表者：田村 岳史（国立極地研究所）／研究分担者：<strong><u>平野 大輔</u></strong> ほか</p>
+              <p class="project-desc">
+                東南極沿岸域における複数の主要棚氷前面での集中観測を展開し、氷床融解を駆動する沖合起源暖水の流入メカニズムとその大気・海洋結合要因の全容解明を目指しています。
+              </p>
+            </article>
 
-          <li class="project-card">
-            <span class="project-tag">2016〜2021年度</span>
-            <div class="project-name">
-              国立極地研究所 第Ⅸ期6か年計画 重点研究観測
-            </div>
-            <div class="project-sub">
-              「サブテーマ2：氷床・海氷縁辺域の総合観測から迫る大気−氷床−海洋の相互作用」
-            </div>
-            <div class="project-meta">
-              PI：青木 茂（北海道大学）
-            </div>
-            <div class="project-link-wrap">
-              <a href="https://www.nipr.ac.jp/antarctic/science-plan9/juuten2.html" target="_blank" rel="noopener noreferrer">
-                プロジェクト詳細（国立極地研究所） →
-              </a>
-            </div>
-          </li>
-        </ul>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2022年度 〜 2026年度</span>
+                <span class="project-role-badge role--co">研究分担者</span>
+                <span class="project-type">日本学術振興会 科学研究費助成事業 基盤研究(S)</span>
+              </div>
+              <h3 class="project-title">
+                次世代南大洋海洋観測網の展開と全球気候変動予測の高度化
+              </h3>
+              <p class="project-meta">研究代表者：青木 茂（北海道大学 低温科学研究所）／研究分担者：<strong><u>平野 大輔</u></strong> ほか</p>
+              <p class="project-desc">
+                係留系、プロファイリングフロート、計器装着アザラシ等の多様な先端観測技術を組み合わせ、アクセス困難な南大洋氷縁域・棚氷下における総合観測網を構築しています。
+              </p>
+            </article>
+          </div>
+        </section>
 
-        <!-- 北極研究プロジェクト -->
-        <h2 class="project-section-title">北極研究プロジェクト</h2>
-        <ul class="project-list">
-          <li class="project-card">
-            <span class="project-tag">2020〜2024年度</span>
-            <div class="project-name">
-              文部科学省 北極域研究推進プロジェクト（ArCS II）
-            </div>
-            <div class="project-sub">
-              「戦略目標①：先進的な観測システムを活用した北極環境変化の実態把握北極海洋環境観測研究、海洋課題：北極海環境動態の解明と汎用データセットの構築」
-            </div>
-          </li>
+        <!-- 主な完了プロジェクト -->
+        <section class="project-category">
+          <h2>主な完了プロジェクト</h2>
 
-          <li class="project-card">
-            <span class="project-tag">2015〜2019年度</span>
-            <div class="project-name">
-              文部科学省 北極域研究推進プロジェクト（ArCS）
-            </div>
-            <div class="project-sub">
-              「テーマ４：北極海洋環境観測研究」
-            </div>
-          </li>
-        </ul>
+          <div class="project-list">
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2020年度 〜 2023年度</span>
+                <span class="project-role-badge role--rep">研究代表者</span>
+                <span class="project-type">日本学術振興会 科学研究費助成事業 基盤研究(C)</span>
+              </div>
+              <h3 class="project-title">
+                <a href="https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-20K12132/" target="_blank" rel="noopener noreferrer">
+                  東南極白瀬氷河域の顕著な底面融解を引き起こす背景要因
+                </a>
+              </h3>
+              <p class="project-meta">課題番号：20K12132／研究代表者：<strong><u>平野 大輔</u></strong></p>
+              <p class="project-desc">
+                リュツォ・ホルム湾および白瀬氷河沖における観測データと数値実験を統合し、沖合起源の暖水が白瀬氷河下に流入して急激な底面融解をもたらすメカニズムとその季節変動要因を解明しました。
+              </p>
+            </article>
+
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2017年度 〜 2019年度</span>
+                <span class="project-role-badge role--rep">研究代表者</span>
+                <span class="project-type">日本学術振興会 科学研究費助成事業 若手研究(B)</span>
+              </div>
+              <h3 class="project-title">
+                <a href="https://kaken.nii.ac.jp/ja/grant/KAKENHI-PROJECT-17K12811/" target="_blank" rel="noopener noreferrer">
+                  東南極沿岸域の氷床ー海氷ー海洋相互作用における暖水流入の影響評価
+                </a>
+              </h3>
+              <p class="project-meta">課題番号：17K12811／研究代表者：<strong><u>平野 大輔</u></strong></p>
+              <p class="project-desc">
+                東南極の白瀬氷河、トッテン棚氷前面、ケープダンレーポリニヤを対象に、現場観測データの詳細な解析から暖水流入の実態と水塊変質プロセスの解明を行いました。
+              </p>
+            </article>
+          </div>
+        </section>
       </div>
     </section>
   </main>
