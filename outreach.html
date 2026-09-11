@@ -12,20 +12,16 @@
 
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* イラスト全体を欠けずに綺麗に表示するバナー枠 */
-    .outreach-banner {
-      border-radius: var(--radius);
-      overflow: hidden;
-      margin: 0 auto 3.5rem;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--line);
-      background: #f8fbfd;
-      max-width: 960px;
-    }
-    .outreach-banner img {
-      display: block;
-      width: 100%;
-      height: auto; /* 全体がトリミングされず比率通りに映る */
+    /* =========================================================
+       ページヒーローの背景にイラスト全体を美しくブレンド
+       ========================================================= */
+    .page-hero--outreach {
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(234, 246, 248, 0.84), rgba(255, 255, 255, 0.90)),
+        url("assets/images/shirase-illustration.jpg") center 40% / cover no-repeat;
+      padding: 84px 0 76px;
+      border-bottom: 1px solid var(--line);
     }
 
     /* アウトリーチ用スタイル */
@@ -103,6 +99,9 @@
       word-break: break-all;
     }
     @media (max-width: 760px) {
+      .page-hero--outreach {
+        padding: 60px 0 52px;
+      }
       .outreach-item {
         padding: 18px 20px;
       }
@@ -130,7 +129,8 @@
   </header>
 
   <main>
-    <section class="page-hero">
+    <!-- イラストを背景に敷いたページヘッダー（ヒーローエリア） -->
+    <section class="page-hero page-hero--outreach">
       <div class="container">
         <p class="eyebrow">Outreach &amp; Public Engagement</p>
         <h1 class="page-title">アウトリーチ</h1>
@@ -140,16 +140,6 @@
 
     <section class="section">
       <div class="container">
-        <!-- ページ上部のアイキャッチイラスト（全体が収まる比率調整） -->
-        <div class="outreach-banner">
-          <img
-            src="assets/images/shirase-illustration.jpg"
-            alt="南極観測船「しらせ」と棚氷・ペンギンのイラスト"
-            width="1360"
-            height="765"
-          >
-        </div>
-
         <!-- 講演・イベント -->
         <section class="outreach-category">
           <h2>講演・イベント</h2>
