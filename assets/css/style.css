@@ -80,8 +80,7 @@ a:hover {
 }
 
 .site-nav a:hover,
-.site-nav a:focus-visible,
-.site-nav a[aria-current="page"] {
+.site-nav a:focus-visible {
   color: var(--ocean);
 }
 
@@ -97,11 +96,12 @@ a:hover {
     var(--mist);
 }
 
+/* ヒーローエリアの左右グリッド配分（写真側を広げる設定） */
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.65fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
   align-items: center;
-  gap: 64px;
+  gap: 48px;
 }
 
 .eyebrow {
@@ -170,9 +170,10 @@ a:hover {
   background: var(--ocean);
 }
 
+/* 写真枠の最大幅を拡張（480px -> 560px） */
 .hero-photo {
   justify-self: end;
-  width: min(100%, 480px);
+  width: min(100%, 560px);
   margin: 0;
 }
 
@@ -297,49 +298,6 @@ a:hover {
   margin: 0;
 }
 
-/* Publications page */
-#publications h2 {
-  margin: 0 0 24px;
-  color: var(--navy);
-  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-}
-
-#publications h3 {
-  margin: 38px 0 14px;
-  color: var(--ocean);
-  font-size: 1.2rem;
-}
-
-#publications ol,
-.publication-list--unnumbered {
-  max-width: 1000px;
-  margin: 0;
-}
-
-#publications ol {
-  padding-left: 1.8em;
-}
-
-.publication-list--unnumbered {
-  padding-left: 0;
-  list-style: none;
-}
-
-#publications li {
-  margin-bottom: 1.6rem;
-  padding-left: 0.2em;
-}
-
-#publications li::marker {
-  color: var(--ocean);
-  font-weight: 700;
-}
-
-#publications strong u {
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 0.14em;
-}
-
 @media (max-width: 760px) {
   .header-inner {
     min-height: auto;
@@ -365,7 +323,7 @@ a:hover {
 
   .hero-photo {
     justify-self: start;
-    width: min(100%, 420px);
+    width: min(100%, 480px);
   }
 
   .hero-photo figcaption {
@@ -378,9 +336,5 @@ a:hover {
 
   .section {
     padding: 56px 0;
-  }
-
-  #publications ol {
-    padding-left: 1.45em;
   }
 }
