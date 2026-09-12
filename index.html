@@ -141,6 +141,32 @@
       color: var(--navy);
     }
 
+    /* トッテン氷河の解説図（図版コンテナ） */
+    .research-figure {
+      margin: 2.2rem 0 2.4rem;
+      text-align: center;
+      background: #fafcfd;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 20px 20px;
+      box-shadow: 0 4px 16px rgba(11, 45, 69, 0.04);
+    }
+    .research-figure img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      border-radius: calc(var(--radius) - 6px);
+    }
+    .research-figure figcaption {
+      margin-top: 14px;
+      font-size: 0.92rem;
+      color: var(--ink);
+      line-height: 1.75;
+      text-align: justify;
+      padding: 0 4px;
+    }
+
     .more-pubs-link-wrap {
       text-align: center;
       margin-top: 3rem;
@@ -224,6 +250,14 @@
       }
       .theme-card--full h4 {
         font-size: 1.08rem;
+      }
+      .research-figure {
+        padding: 12px 12px 14px;
+        margin: 1.5rem 0 1.8rem;
+      }
+      .research-figure figcaption {
+        font-size: 0.88rem;
+        line-height: 1.65;
       }
       .contact-grid {
         grid-template-columns: 1fr;
@@ -364,6 +398,18 @@
             <p>
               2015年に豪州の研究グループが棚氷下への暖水流入を初めて観測（<a href="https://doi.org/10.1126/sciadv.1601610" target="_blank" rel="noopener noreferrer">Rintoul et al., 2016</a>）し、その後、日本もJAREの枠組みで2018年3月(JARE59)から本格的にトッテン観測に着手しました。水産庁の調査船「開洋丸」による南極航海では、氷河沖の陸棚端から大陸斜面にかけての詳細な海洋観測を実施し、氷河沖に定在する100〜200km規模の海洋渦が、沖合の暖水を大陸方向へ効率的に輸送していることを明らかにしました（<a href="https://doi.org/10.1038/s43247-021-00217-4" target="_blank" rel="noopener noreferrer">Hirano et al., 2021</a>）。また、JARE重点研究観測プロジェクトでは、現場観測を行う上で不可欠な海底地形すら未知だったトッテン氷河近傍域での研究を南極観測船「しらせ」により実現し、現在もトッテン陸棚域における海洋観測を継続しています。鉛直採水やCTD観測に加え、係留観測による長期時系列データや高精度の海底地形データなど、他に類のない独自の観測データを取得・蓄積してきました。その主要な成果の一つとして、観測と数値モデルを組み合わせた研究により、沖合からトッテン棚氷に至る暖水の分布・循環像を初めて明らかにし、トッテン棚氷下へ流入する暖水の特性に大きな経年変動があることも示しました（<a href="https://doi.org/10.1038/s41467-023-39764-z" target="_blank" rel="noopener noreferrer">Hirano et al., 2023</a>）。さらに、氷河前面のトラフ最深部(暖水の主要な流路)における長期係留時系列データの解析から、底面融解強度を左右する棚氷下への海洋熱輸送量を初めて直接評価することに成功し、流入する暖水の特性が上流のダルトンポリニヤにおける海氷生産量の多寡と密接に関わっていることが明らかになりつつあります。
             </p>
+
+            <!-- トッテン氷河の概念図（PNG対応） -->
+            <figure class="research-figure">
+              <img
+                src="assets/images/totten-ocean-circulation.png"
+                alt="沖合からトッテン氷河へ向かう暖かい海水のルート"
+                loading="lazy"
+              >
+              <figcaption>
+                沖合からトッテン氷河へ向かう暖かい海水のルート。沖合には複数の巨大な時計回りの定在海洋渦（空間スケール100―200km）が存在し （Mizobata et al., 2020; Hirano et al., 2021）、暖水は渦の東側（南へ向かう流れが形成）を中心に効率的に大陸棚方向へと輸送され、その後、お椀状の深い地形に沿って時計回りに循環し、その一部がトッテン氷河下へと最終的に運ばれる。
+              </figcaption>
+            </figure>
 
             <h4>白瀬氷河域(昭和基地近傍)</h4>
             <p>
