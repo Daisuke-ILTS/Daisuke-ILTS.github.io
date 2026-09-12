@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>教育｜平野大輔</title>
+  <title>アウトリーチ｜平野大輔</title>
   <meta
     name="description"
-    content="平野大輔の教育活動・担当講義・研究論文指導歴（北海道大学 大学院環境科学院、総合研究大学院大学）。"
+    content="平野大輔の講演・イベント・サイエンスカフェ・解説記事一覧。"
   >
 
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     /* =========================================================
-       ページヒーロー（イラスト背景）
+       ページヒーローの背景にイラストを美しくブレンド
        ========================================================= */
-    .page-hero--education {
+    .page-hero--outreach {
       position: relative;
       background:
         linear-gradient(135deg, rgba(234, 246, 248, 0.84), rgba(255, 255, 255, 0.90)),
@@ -24,129 +24,89 @@
       border-bottom: 1px solid var(--line);
     }
 
-    /* 教育セクション用スタイル */
-    .edu-block {
+    /* アウトリーチ用スタイル */
+    .outreach-category {
       margin-bottom: 3.5rem;
     }
-    .edu-block:last-child {
-      margin-bottom: 0;
+    .outreach-category h2 {
+      font-size: 1.45rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--ocean);
+      padding-bottom: 0.5rem;
+      margin: 0 0 1.8rem;
     }
-    .edu-header {
+    .outreach-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .outreach-item {
       background: var(--white);
       border: 1px solid var(--line);
-      border-left: 5px solid var(--ocean);
       border-radius: var(--radius);
-      padding: 24px 28px;
+      padding: 20px 24px;
       box-shadow: 0 4px 14px rgba(11, 45, 69, 0.04);
-      margin-bottom: 24px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .edu-period-badge {
+    .outreach-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(11, 45, 69, 0.08);
+    }
+    .outreach-item-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .outreach-date {
       display: inline-block;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 700;
       color: var(--ocean);
       background: var(--ice);
-      padding: 4px 12px;
+      padding: 3px 10px;
       border-radius: 6px;
-      margin-bottom: 10px;
     }
-    .edu-period-badge--current {
-      color: #0d47a1;
-      background: #e3f2fd;
-      border: 1px solid #bbdefb;
-    }
-    .edu-univ-title {
-      font-size: 1.35rem;
-      color: var(--navy);
-      margin: 0 0 6px;
-      line-height: 1.4;
-    }
-    .edu-course-title {
-      font-size: 1.05rem;
+    .outreach-target {
+      font-size: 0.85rem;
       color: var(--muted);
-      margin: 0;
       font-weight: 500;
     }
-
-    /* サブセクション（担当講義 / 研究・論文指導） */
-    .edu-subgrid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .edu-card {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px 26px;
-      box-shadow: 0 4px 14px rgba(11, 45, 69, 0.03);
-    }
-    .edu-card h3 {
+    .outreach-title {
       font-size: 1.15rem;
       color: var(--navy);
-      margin: 0 0 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--ice);
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      margin: 0 0 6px;
+      line-height: 1.5;
     }
-    .edu-card h3::before {
-      content: "";
-      display: inline-block;
-      width: 4px;
-      height: 1em;
-      background: var(--ocean);
-      border-radius: 2px;
+    .outreach-title a {
+      color: var(--navy);
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
     }
-
-    .edu-item-list {
-      list-style: none;
-      padding: 0;
+    .outreach-title a:hover {
+      color: var(--ocean);
+    }
+    .outreach-meta {
+      font-size: 0.92rem;
+      color: var(--muted);
       margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .edu-item {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 14px;
-      align-items: baseline;
-      font-size: 0.95rem;
       line-height: 1.6;
     }
-    .edu-year {
-      font-weight: 700;
+    .outreach-meta a {
       color: var(--ocean);
-      white-space: nowrap;
-    }
-    .edu-desc {
-      color: var(--ink);
-    }
-
-    @media (max-width: 840px) {
-      .edu-subgrid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      .edu-item {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
+      text-decoration: underline;
+      word-break: break-all;
     }
     @media (max-width: 760px) {
-      .page-hero--education {
+      .page-hero--outreach {
         padding: 60px 0 52px;
       }
-      .edu-header {
+      .outreach-item {
         padding: 18px 20px;
       }
-      .edu-univ-title {
-        font-size: 1.2rem;
-      }
-      .edu-card {
-        padding: 20px 18px;
+      .outreach-title {
+        font-size: 1.05rem;
       }
     }
   </style>
@@ -155,7 +115,10 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a class="site-name" href="index.html">ホーム</a>
+      <a class="site-name" href="index.html" aria-label="ホームページへ移動">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>HOME</span>
+      </a>
 
       <nav class="site-nav" aria-label="メインメニュー">
         <a href="index.html#news">News &amp; Topics</a>
@@ -163,8 +126,8 @@
         <a href="index.html#research">研究テーマ</a>
         <a href="publications.html">論文リスト</a>
         <a href="projects.html">プロジェクト</a>
-        <a href="education.html" aria-current="page">教育</a>
-        <a href="outreach.html">アウトリーチ</a>
+        <a href="education.html">教育</a>
+        <a href="outreach.html" aria-current="page">アウトリーチ</a>
         <a href="index.html#links">外部リンク</a>
         <a href="index.html#contact">連絡先</a>
       </nav>
@@ -172,108 +135,175 @@
   </header>
 
   <main>
-    <section class="page-hero page-hero--education">
+    <section class="page-hero page-hero--outreach">
       <div class="container">
-        <p class="eyebrow">Education &amp; Teaching</p>
-        <h1 class="page-title">教育</h1>
-        <p class="page-lead">教育歴・担当講義・研究論文指導</p>
+        <p class="eyebrow">Outreach &amp; Public Engagement</p>
+        <h1 class="page-title">アウトリーチ</h1>
+        <p class="page-lead">講演・イベント・サイエンスカフェ・解説記事一覧</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
+        <!-- 講演・イベント -->
+        <section class="outreach-category">
+          <h2>講演・イベント</h2>
 
-        <!-- 2026年度〜現在：北海道大学 大学院環境科学院 -->
-        <article class="edu-block">
-          <div class="edu-header">
-            <span class="edu-period-badge edu-period-badge--current">2026年度 〜 現在</span>
-            <h2 class="edu-univ-title">北海道大学 大学院環境科学院</h2>
-            <p class="edu-course-title">地球圏科学専攻 大気海洋物理学・気候力学コース 担当</p>
+          <div class="outreach-list">
+            <article class="outreach-item">
+              <div class="outreach-item-head">
+                <span class="outreach-date">2026年7月4日</span>
+                <span class="outreach-target">（対象：一般・児童生徒）</span>
+              </div>
+              <h3 class="outreach-title">
+                <a href="https://www.miraikan.jst.go.jp/events/202607044597.html" target="_blank" rel="noopener noreferrer">
+                  研究者トーク＆南極ライブ中継！ 南極観測隊の仕事と生活
+                </a>
+              </h3>
+              <p class="outreach-meta">日本科学未来館 7階 未来館ホール（共催：国立極地研究所）</p>
+            </article>
+
+            <article class="outreach-item">
+              <div class="outreach-item-head">
+                <span class="outreach-date">2026年3月14日</span>
+                <span class="outreach-target">（YouTubeライブ配信）</span>
+              </div>
+              <h3 class="outreach-title">
+                <a href="https://www.youtube.com/watch?v=AlR61iziOlc" target="_blank" rel="noopener noreferrer">
+                  トッテン氷河沖から生中継！南極ライブ2026
+                </a>
+              </h3>
+              <p class="outreach-meta">青木 茂、<strong><u>平野 大輔</u></strong> ほか／配信URL: <a href="https://www.youtube.com/watch?v=AlR61iziOlc" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=AlR61iziOlc</a></p>
+            </article>
+
+            <article class="outreach-item">
+              <div class="outreach-item-head">
+                <span class="outreach-date">2025年8月7日</span>
+                <span class="outreach-target">（対象：小学3年生〜中学3年生）</span>
+              </div>
+              <h3 class="outreach-title">
+                <a href="https://www.nipr.ac.jp/info2025/20250610-1.html" target="_blank" rel="noopener noreferrer">
+                  極地研サイエンスカフェ「南極の海からみる地球のミライ」
+                </a>
+              </h3>
+              <p class="outreach-meta">国立極地研究所 談話室サザンクロス（国立極地研究所・立川市教育委員会・たちかわ市民交流大学市民推進委員会 協働企画公開講座）</p>
+            </article>
+
+            <article class="outreach-item">
+              <div class="outreach-item-head">
+                <span class="outreach-date">2025年3月27日</span>
+                <span class="outreach-target">（対象：小学5年生〜中学3年生）</span>
+              </div>
+              <h3 class="outreach-title">
+                <a href="https://www.nipr.ac.jp/info2024/20250218.html" target="_blank" rel="noopener noreferrer">
+                  極地研サイエンスカフェ「南極の海からみる地球のミライ」
+                </a>
+              </h3>
+              <p class="outreach-meta">国立極地研究所 談話室サザンクロス（国立極地研究所・立川市教育委員会・たちかわ市民交流大学市民推進委員会 協働企画公開講座）</p>
+            </article>
+
+            <article class="outreach-item">
+              <div class="outreach-item-head">
+                <span class="outreach-date">2024年3月27日</span>
+                <span class="outreach-target">（対象：小学5年生〜中学3年生）</span>
+              </div>
+              <h3 class="outreach-title">
+                <a href="https://www.nipr.ac.jp/info2023/20240208.html" target="_blank" rel="noopener noreferrer">
+                  極地研サイエンスカフェ「南極の海からみる地球のミライ」
+                </a>
+              </h3>
+              <p class="outreach-meta">国立極地研究所 談話室サザンクロス（国立極地研究所・立川市教育委員会・たちかわ市民交流大学市民推進委員会 協働企画公開講座）</p>
+            </article>
+
+            <article class="outreach-item">
+              <div class="outreach-item-head">
+                <span class="outreach-date">2023年2月14日</span>
+                <span class="outreach-target">（対象：一般向け）</span>
+              </div>
+              <h3 class="outreach-title">
+                <a href="https://www.nipr.ac.jp/info/notice/20230112.html" target="_blank" rel="noopener noreferrer">
+                  極地研サイエンスカフェ「南極氷床を融かす海」
+                </a>
+              </h3>
+              <p class="outreach-meta">立川市 幸学習館（国立極地研究所・立川市教育委員会・たちかわ市民交流大学市民推進委員会 協働企画公開講座）</p>
+            </article>
           </div>
-        </article>
+        </section>
 
-        <!-- 2021〜2025年度：総合研究大学院大学 -->
-        <article class="edu-block">
-          <div class="edu-header">
-            <span class="edu-period-badge">2021年度 〜 2025年度</span>
-            <h2 class="edu-univ-title">総合研究大学院大学 先端学術院</h2>
-            <p class="edu-course-title">先端学術専攻 極域科学コース 担当</p>
+        <!-- 解説記事・メディア取材 -->
+        <section class="outreach-category">
+          <h2>解説記事・メディア取材</h2>
+
+          <div class="outreach-list">
+            <article class="outreach-item">
+              <div class="outreach-item-head">
+                <span class="outreach-date">2026年4月9日</span>
+                <span class="outreach-target">（新聞報道）</span>
+              </div>
+              <h3 class="outreach-title">
+                「氷山の海を知る リスク覚悟の挑戦」
+              </h3>
+              <p class="outreach-meta"><strong><u>平野 大輔</u></strong> ほか／朝日新聞</p>
+            </article>
+
+            <article class="outreach-item">
+              <div class="outreach-item-head">
+                <span class="outreach-date">2026年3月15日</span>
+                <span class="outreach-target">（新聞報道）</span>
+              </div>
+              <h3 class="outreach-title">
+                「史上最少」海氷に異変（1面）、南極の氷 地球を左右（2面）
+              </h3>
+              <p class="outreach-meta"><strong><u>平野 大輔</u></strong> ほか／朝日新聞</p>
+            </article>
+
+            <article class="outreach-item">
+              <div class="outreach-item-head">
+                <span class="outreach-date">2026年3月12日</span>
+                <span class="outreach-target">（ウェブ報道）</span>
+              </div>
+              <h3 class="outreach-title">
+                気候変動の未来、氷の世界「南極」がカギ 海洋観測続ける「しらせ」
+              </h3>
+              <p class="outreach-meta"><strong><u>平野 大輔</u></strong> ほか／朝日新聞デジタル</p>
+            </article>
+
+            <article class="outreach-item">
+              <div class="outreach-item-head">
+                <span class="outreach-date">2026年3月11日</span>
+                <span class="outreach-target">（ウェブ報道）</span>
+              </div>
+              <h3 class="outreach-title">
+                南極の海を知る「賭け」、相手は氷山 1年分のデータ抱えた計器回収
+              </h3>
+              <p class="outreach-meta"><strong><u>平野 大輔</u></strong> ほか／朝日新聞デジタル</p>
+            </article>
+
+            <article class="outreach-item">
+              <div class="outreach-item-head">
+                <span class="outreach-date">2026年3月7日</span>
+                <span class="outreach-target">（ウェブ報道）</span>
+              </div>
+              <h3 class="outreach-title">
+                観測船しらせが集中観測開始 東南極の氷河沖に到着、状況「追い風」
+              </h3>
+              <p class="outreach-meta"><strong><u>平野 大輔</u></strong>、青木 茂／朝日新聞デジタル</p>
+            </article>
+
+            <article class="outreach-item">
+              <div class="outreach-item-head">
+                <span class="outreach-date">2024年10月15日</span>
+                <span class="outreach-target">（ウェブマガジン寄稿）</span>
+              </div>
+              <h3 class="outreach-title">
+                <a href="https://kyoku.nipr.ac.jp/article/2269" target="_blank" rel="noopener noreferrer">
+                  「南極の海の鼓動」を聞く、係留系観測
+                </a>
+              </h3>
+              <p class="outreach-meta"><strong><u>平野 大輔</u></strong>／国立極地研究所ウェブマガジン『極』連載「知られざる海洋観測機器たち」第2回</p>
+            </article>
           </div>
-
-          <div class="edu-subgrid">
-            <!-- 担当講義 -->
-            <div class="edu-card">
-              <h3>担当講義</h3>
-              <ul class="edu-item-list">
-                <li class="edu-item">
-                  <span class="edu-year">2025年度</span>
-                  <span class="edu-desc">極域海洋科学概論</span>
-                </li>
-                <li class="edu-item">
-                  <span class="edu-year">2024年度</span>
-                  <span class="edu-desc">極域海洋科学概論（分担）、大気・水圏の科学概論（分担）、先端地球科学通論Ⅱ（分担）</span>
-                </li>
-                <li class="edu-item">
-                  <span class="edu-year">2022年度</span>
-                  <span class="edu-desc">先端地球科学通論Ⅱ（分担）</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- 研究・論文指導 -->
-            <div class="edu-card">
-              <h3>研究・論文指導</h3>
-              <ul class="edu-item-list">
-                <li class="edu-item">
-                  <span class="edu-year">2025年度</span>
-                  <span class="edu-desc">博士論文 副査（1件）</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <!-- 2016〜2020年度：北海道大学 大学院環境科学院 -->
-        <article class="edu-block">
-          <div class="edu-header">
-            <span class="edu-period-badge">2016年度 〜 2020年度</span>
-            <h2 class="edu-univ-title">北海道大学 大学院環境科学院</h2>
-            <p class="edu-course-title">地球圏科学専攻 大気海洋物理学・気候力学コース 担当</p>
-          </div>
-
-          <div class="edu-subgrid">
-            <!-- 担当講義 -->
-            <div class="edu-card">
-              <h3>担当講義</h3>
-              <ul class="edu-item-list">
-                <li class="edu-item">
-                  <span class="edu-year">2016〜2020年度</span>
-                  <span class="edu-desc">地球圏科学論文講読（分担）</span>
-                </li>
-                <li class="edu-item">
-                  <span class="edu-year">2017年度</span>
-                  <span class="edu-desc">計算機・プログラミング言語演習（分担）</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- 研究・論文指導 -->
-            <div class="edu-card">
-              <h3>研究・論文指導</h3>
-              <ul class="edu-item-list">
-                <li class="edu-item">
-                  <span class="edu-year">2019年度</span>
-                  <span class="edu-desc">修士論文 副査（3件、内1件は雪氷・寒冷圏科学コース）</span>
-                </li>
-                <li class="edu-item">
-                  <span class="edu-year">2018年度</span>
-                  <span class="edu-desc">修士論文 副査（2件）</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
+        </section>
       </div>
     </section>
   </main>
