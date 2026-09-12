@@ -84,7 +84,7 @@ a:hover {
   height: 18px;
   fill: currentColor;
   flex-shrink: 0;
-  margin-bottom: 2px; /* 視覚的な縦位置微調整 */
+  margin-bottom: 2px;
 }
 
 .site-name:hover,
