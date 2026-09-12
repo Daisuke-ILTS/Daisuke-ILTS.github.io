@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>教育｜平野大輔</title>
+  <meta
+    name="description"
+    content="平野大輔の教育活動・担当講義・研究論文指導歴（総合研究大学院大学、北海道大学大学院環境科学院）。"
+  >
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* =========================================================
+       ページヒーロー（イラスト背景）
+       ========================================================= */
+    .page-hero--education {
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(234, 246, 248, 0.84), rgba(255, 255, 255, 0.90)),
+        url("assets/images/shirase-illustration.jpg") center 40% / cover no-repeat;
+      padding: 84px 0 76px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* 教育セクション用スタイル */
+    .edu-block {
+      margin-bottom: 3.5rem;
+    }
+    .edu-block:last-child {
+      margin-bottom: 0;
+    }
+    .edu-header {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--ocean);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      box-shadow: 0 4px 14px rgba(11, 45, 69, 0.04);
+      margin-bottom: 24px;
+    }
+    .edu-period-badge {
+      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ocean);
+      background: var(--ice);
+      padding: 4px 12px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .edu-univ-title {
+      font-size: 1.35rem;
+      color: var(--navy);
+      margin: 0 0 6px;
+      line-height: 1.4;
+    }
+    .edu-course-title {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* サブセクション（担当講義 / 研究・論文指導） */
+    .edu-subgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .edu-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      box-shadow: 0 4px 14px rgba(11, 45, 69, 0.03);
+    }
+    .edu-card h3 {
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ice);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .edu-card h3::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 1em;
+      background: var(--ocean);
+      border-radius: 2px;
+    }
+
+    .edu-item-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .edu-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 14px;
+      align-items: baseline;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .edu-year {
+      font-weight: 700;
+      color: var(--ocean);
+      white-space: nowrap;
+    }
+    .edu-desc {
+      color: var(--ink);
+    }
+
+    @media (max-width: 840px) {
+      .edu-subgrid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .edu-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+    @media (max-width: 760px) {
+      .page-hero--education {
+        padding: 60px 0 52px;
+      }
+      .edu-header {
+        padding: 18px 20px;
+      }
+      .edu-univ-title {
+        font-size: 1.2rem;
+      }
+      .edu-card {
+        padding: 20px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-name" href="index.html">ホーム</a>
+
+      <nav class="site-nav" aria-label="メインメニュー">
+        <a href="index.html#news">News &amp; Topics</a>
+        <a href="index.html#about">研究紹介</a>
+        <a href="index.html#research">研究テーマ</a>
+        <a href="publications.html">論文リスト</a>
+        <a href="projects.html">プロジェクト</a>
+        <a href="education.html" aria-current="page">教育</a>
+        <a href="outreach.html">アウトリーチ</a>
+        <a href="index.html#links">外部リンク</a>
+        <a href="index.html#contact">連絡先</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero page-hero--education">
+      <div class="container">
+        <p class="eyebrow">Education &amp; Teaching</p>
+        <h1 class="page-title">教育</h1>
+        <p class="page-lead">教育歴・担当講義・研究論文指導</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- 2021年度〜現在：総合研究大学院大学 -->
+        <article class="edu-block">
+          <div class="edu-header">
+            <span class="edu-period-badge">2021年度 〜 現在</span>
+            <h2 class="edu-univ-title">総合研究大学院大学 先端学術院</h2>
+            <p class="edu-course-title">先端学術専攻 極域科学コース 担当</p>
+          </div>
+
+          <div class="edu-subgrid">
+            <!-- 担当講義 -->
+            <div class="edu-card">
+              <h3>担当講義</h3>
+              <ul class="edu-item-list">
+                <li class="edu-item">
+                  <span class="edu-year">2025年度</span>
+                  <span class="edu-desc">極域海洋科学概論</span>
+                </li>
+                <li class="edu-item">
+                  <span class="edu-year">2024年度</span>
+                  <span class="edu-desc">極域海洋科学概論（分担）、大気・水圏の科学概論（分担）、先端地球科学通論Ⅱ（分担）</span>
+                </li>
+                <li class="edu-item">
+                  <span class="edu-year">2022年度</span>
+                  <span class="edu-desc">先端地球科学通論Ⅱ（分担）</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 研究・論文指導 -->
+            <div class="edu-card">
+              <h3>研究・論文指導</h3>
+              <ul class="edu-item-list">
+                <li class="edu-item">
+                  <span class="edu-year">2025年度</span>
+                  <span class="edu-desc">博士論文 副査（1件）</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2016〜2020年度：北海道大学 大学院環境科学院 -->
+        <article class="edu-block">
+          <div class="edu-header">
+            <span class="edu-period-badge">2016年度 〜 2020年度</span>
+            <h2 class="edu-univ-title">北海道大学 大学院環境科学院</h2>
+            <p class="edu-course-title">地球圏科学専攻 大気海洋物理学・気候力学コース 担当</p>
+          </div>
+
+          <div class="edu-subgrid">
+            <!-- 担当講義 -->
+            <div class="edu-card">
+              <h3>担当講義</h3>
+              <ul class="edu-item-list">
+                <li class="edu-item">
+                  <span class="edu-year">2016〜2020年度</span>
+                  <span class="edu-desc">地球圏科学論文講読（分担）</span>
+                </li>
+                <li class="edu-item">
+                  <span class="edu-year">2017年度</span>
+                  <span class="edu-desc">計算機・プログラミング言語演習（分担）</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 研究・論文指導 -->
+            <div class="edu-card">
+              <h3>研究・論文指導</h3>
+              <ul class="edu-item-list">
+                <li class="edu-item">
+                  <span class="edu-year">2019年度</span>
+                  <span class="edu-desc">修士論文 副査（3件、内1件は雪氷・寒冷圏科学コース）</span>
+                </li>
+                <li class="edu-item">
+                  <span class="edu-year">2018年度</span>
+                  <span class="edu-desc">修士論文 副査（2件）</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Daisuke HIRANO. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
