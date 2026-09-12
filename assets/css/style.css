@@ -10,10 +10,13 @@
   --shadow: 0 12px 28px rgba(11, 45, 69, 0.10);
   --radius: 18px;
   --max-width: 1120px;
+  box-sizing: border-box;
 }
 
-* {
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 html {
@@ -24,10 +27,9 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--white);
-  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
-    "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", Meiryo,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, Meiryo, sans-serif;
   line-height: 1.8;
+  overflow-x: hidden;
 }
 
 a {
@@ -39,13 +41,17 @@ a:hover {
   color: var(--navy);
 }
 
+/* =========================================================
+   ヘッダー＆ナビゲーション
+   ========================================================= */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.94);
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .header-inner {
@@ -55,12 +61,12 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
 }
 
 .site-name {
   color: var(--navy);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0.03em;
   text-decoration: none;
@@ -72,11 +78,14 @@ a:hover {
   align-items: center;
   gap: 18px;
   font-size: 0.92rem;
+  flex-wrap: wrap;
 }
 
 .site-nav a {
   color: var(--ink);
   text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s ease;
 }
 
 .site-nav a:hover,
@@ -89,6 +98,9 @@ a:hover {
   margin: 0 auto;
 }
 
+/* =========================================================
+   ヒーローエリア（PC基準）
+   ========================================================= */
 .hero {
   padding: 72px 0 64px;
   background:
@@ -96,12 +108,17 @@ a:hover {
     var(--mist);
 }
 
-/* ヒーローエリアの左右グリッド配分（写真側を広げる設定） */
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  grid-template-columns: minmax(0, 1.4fr) minmax(240px, 0.6fr);
   align-items: center;
-  gap: 48px;
+  gap: 56px;
+}
+
+.hero-text {
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .eyebrow {
@@ -111,33 +128,38 @@ a:hover {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  line-height: 1.4;
 }
 
 .hero h1 {
   margin: 0;
   color: var(--navy);
-  font-size: clamp(2.3rem, 5vw, 4.4rem);
-  line-height: 1.15;
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  line-height: 1.2;
   letter-spacing: 0.03em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .name-en {
   display: block;
-  margin-top: 12px;
+  margin-top: 10px;
   color: var(--muted);
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 500;
   letter-spacing: 0.08em;
+  word-break: normal;
 }
 
 .affiliation {
-  margin: 26px 0 0;
+  margin: 24px 0 0;
   font-size: 1.05rem;
   line-height: 1.8;
+  color: var(--ink);
 }
 
 .field {
-  margin: 12px 0 0;
+  margin: 14px 0 0;
   color: var(--ocean);
   font-size: 1.05rem;
   font-weight: 700;
@@ -146,7 +168,7 @@ a:hover {
 .hero-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   margin-top: 28px;
 }
 
@@ -154,13 +176,14 @@ a:hover {
   display: inline-flex;
   align-items: center;
   min-height: 42px;
-  padding: 8px 16px;
+  padding: 8px 18px;
   border: 1px solid var(--ocean);
   border-radius: 999px;
   color: var(--ocean);
   font-size: 0.92rem;
   font-weight: 700;
   text-decoration: none;
+  background: transparent;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -170,10 +193,9 @@ a:hover {
   background: var(--ocean);
 }
 
-/* 写真枠の最大幅を拡張（480px -> 560px） */
 .hero-photo {
   justify-self: end;
-  width: min(100%, 560px);
+  width: min(100%, 380px);
   margin: 0;
 }
 
@@ -181,7 +203,7 @@ a:hover {
   display: block;
   width: 100%;
   height: auto;
-  border: 6px solid var(--white);
+  border: 5px solid var(--white);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
@@ -193,6 +215,9 @@ a:hover {
   text-align: right;
 }
 
+/* =========================================================
+   共通セクション
+   ========================================================= */
 .section {
   padding: 76px 0;
 }
@@ -204,48 +229,15 @@ a:hover {
 .section-heading {
   margin: 0 0 28px;
   color: var(--navy);
-  font-size: clamp(1.7rem, 3vw, 2.25rem);
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
   line-height: 1.35;
 }
 
 .lead {
   max-width: 900px;
   margin: 0;
-  font-size: 1.06rem;
-}
-
-.theme-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.theme-card {
-  padding: 30px;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: 0 8px 20px rgba(11, 45, 69, 0.05);
-}
-
-.theme-card h3 {
-  margin: 0 0 16px;
-  color: var(--navy);
-  font-size: 1.25rem;
-  line-height: 1.55;
-}
-
-.theme-card p {
-  margin: 0 0 18px;
-}
-
-.theme-card ul {
-  margin: 0;
-  padding-left: 1.25em;
-}
-
-.theme-card li + li {
-  margin-top: 10px;
+  font-size: 1.05rem;
+  line-height: 1.9;
 }
 
 .link-list {
@@ -258,12 +250,13 @@ a:hover {
   display: inline-flex;
   align-items: center;
   min-height: 46px;
-  padding: 9px 16px;
+  padding: 9px 18px;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: var(--white);
   font-weight: 700;
   text-decoration: none;
+  transition: all 0.15s ease;
 }
 
 .link-list a:hover,
@@ -273,10 +266,10 @@ a:hover {
 }
 
 .contact-box {
-  max-width: 760px;
-  padding: 28px 30px;
+  padding: 24px 28px;
   border-left: 5px solid var(--ocean);
   background: var(--ice);
+  border-radius: 4px;
 }
 
 .contact-box p {
@@ -298,22 +291,32 @@ a:hover {
   margin: 0;
 }
 
-@media (max-width: 760px) {
+/* =========================================================
+   スマートフォン・タブレット対応（レスポンシブ）
+   ========================================================= */
+@media (max-width: 768px) {
   .header-inner {
-    min-height: auto;
-    padding: 14px 0;
+    width: calc(100% - 32px);
+    padding: 12px 0;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 10px;
   }
 
   .site-nav {
+    display: flex;
     flex-wrap: wrap;
-    gap: 8px 16px;
+    gap: 8px 14px;
+    font-size: 0.88rem;
   }
 
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  /* ヒーロー：1カラム縦並び、はみ出し・重なりを防止 */
   .hero {
-    padding: 52px 0;
+    padding: 42px 0 46px;
   }
 
   .hero-grid {
@@ -321,20 +324,57 @@ a:hover {
     gap: 32px;
   }
 
+  .eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    word-break: break-word;
+  }
+
+  .hero h1 {
+    font-size: 2.1rem;
+    line-height: 1.25;
+  }
+
+  .name-en {
+    font-size: 1.05rem;
+    margin-top: 6px;
+  }
+
+  .affiliation {
+    margin-top: 18px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .field {
+    font-size: 0.95rem;
+    margin-top: 10px;
+  }
+
+  /* スマホでは写真を全幅かつ中央〜左に整頓して配置 */
   .hero-photo {
-    justify-self: start;
-    width: min(100%, 480px);
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    justify-self: center;
   }
 
   .hero-photo figcaption {
-    text-align: left;
-  }
-
-  .theme-grid {
-    grid-template-columns: 1fr;
+    text-align: center;
+    font-size: 0.78rem;
   }
 
   .section {
-    padding: 56px 0;
+    padding: 50px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 20px;
+  }
+
+  .lead {
+    font-size: 0.98rem;
+    line-height: 1.8;
   }
 }
