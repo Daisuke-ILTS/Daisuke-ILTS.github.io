@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>論文リスト｜平野大輔</title>
+  <title>プロジェクト｜平野大輔</title>
   <meta
     name="description"
-    content="平野大輔の査読付き学術論文一覧。"
+    content="平野大輔の研究プロジェクト・獲得研究費（大型科研費・JARE重点研究観測・北極研究・科学研究費助成事業・外部資金）一覧。"
   >
 
   <link rel="stylesheet" href="assets/css/style.css">
@@ -15,7 +15,7 @@
     /* =========================================================
        ページヒーローの背景にイラストを美しくブレンド
        ========================================================= */
-    .page-hero--pubs {
+    .page-hero--projects {
       position: relative;
       background:
         linear-gradient(135deg, rgba(234, 246, 248, 0.84), rgba(255, 255, 255, 0.90)),
@@ -24,50 +24,89 @@
       border-bottom: 1px solid var(--line);
     }
 
-    /* In press用（番号なしのフラットなリスト） */
-    .in-press-list {
-      list-style: disc;
-      padding-left: 1.4rem;
-      margin: 0;
+    /* プロジェクト一覧用スタイル */
+    .project-category {
+      margin-bottom: 3.5rem;
     }
-    .in-press-list > li {
-      margin-bottom: 1.3rem;
-      line-height: 1.75;
-    }
-    .in-press-list > li:last-child {
-      margin-bottom: 0;
-    }
-
-    /* 各文献内のリンクスタイル */
-    .pub-doi {
-      display: inline-block;
-      margin-left: 0.25rem;
-      word-break: break-all;
-      color: var(--ocean);
-      font-family: inherit;
-    }
-    .pub-doi:hover {
+    .project-category h2 {
+      font-size: 1.45rem;
       color: var(--navy);
+      border-bottom: 2px solid var(--ocean);
+      padding-bottom: 0.5rem;
+      margin: 0 0 1.5rem;
     }
-    .pub-press {
-      display: block;
-      margin-top: 0.4rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.6;
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
-    .pub-press a {
+    .project-item {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      box-shadow: 0 4px 14px rgba(11, 45, 69, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .project-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(11, 45, 69, 0.08);
+    }
+    .project-item-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .project-period {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
       color: var(--ocean);
-      text-decoration: underline;
-      text-underline-offset: 0.16em;
+      background: var(--ice);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+    .project-type {
+      font-size: 0.92rem;
+      color: var(--muted);
       font-weight: 500;
     }
-    .pub-press a:hover {
+    .project-title {
+      font-size: 1.12rem;
       color: var(--navy);
+      margin: 0 0 6px;
+      line-height: 1.5;
+    }
+    .project-title a {
+      color: var(--navy);
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+    .project-title a:hover {
+      color: var(--ocean);
+    }
+    .project-meta {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.55;
+    }
+    .project-meta a {
+      color: var(--ocean);
+      text-decoration: underline;
+      word-break: break-all;
     }
     @media (max-width: 760px) {
-      .page-hero--pubs {
+      .page-hero--projects {
         padding: 60px 0 52px;
+      }
+      .project-item {
+        padding: 16px 18px;
+      }
+      .project-title {
+        font-size: 1.05rem;
       }
     }
   </style>
@@ -82,8 +121,8 @@
         <a href="index.html#news">News &amp; Topics</a>
         <a href="index.html#about">研究紹介</a>
         <a href="index.html#research">研究テーマ</a>
-        <a href="publications.html" aria-current="page">論文リスト</a>
-        <a href="projects.html">プロジェクト</a>
+        <a href="publications.html">論文リスト</a>
+        <a href="projects.html" aria-current="page">プロジェクト</a>
         <a href="education.html">教育</a>
         <a href="outreach.html">アウトリーチ</a>
         <a href="index.html#links">外部リンク</a>
@@ -93,467 +132,300 @@
   </header>
 
   <main>
-    <section class="page-hero page-hero--pubs">
+    <section class="page-hero page-hero--projects">
       <div class="container">
-        <p class="eyebrow">Publications</p>
-        <h1 class="page-title">論文リスト</h1>
-        <p class="page-lead">査読付き学術論文</p>
+        <p class="eyebrow">Research Projects &amp; Grants</p>
+        <h1 class="page-title">プロジェクト</h1>
+        <p class="page-lead">研究プロジェクト・獲得研究費一覧</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container publication-layout">
-        <aside class="publication-note" aria-label="論文一覧の注記">
-          <p>
-            論文は新しい順に掲載しています。各論文のDOIリンクから出版社の論文ページへ、またプレスリリースのリンクから公式発表記事へアクセスできます。
-          </p>
-        </aside>
+      <div class="container">
+        <!-- 大型科研費プロジェクト -->
+        <section class="project-category">
+          <h2>大型科研費プロジェクト</h2>
 
-        <div class="publication-content">
-          <!-- In press（番号なし） -->
-          <section class="publication-year" aria-labelledby="in-press-heading">
-            <h2 id="in-press-heading">In press</h2>
+          <div class="project-list">
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2024年度 〜 2028年度</span>
+                <span class="project-type">文部科学省 科学研究費助成事業 学術変革領域研究(A)</span>
+              </div>
+              <h3 class="project-title">
+                <a href="https://glaces.lowtem.hokudai.ac.jp/" target="_blank" rel="noopener noreferrer">
+                  学術変革領域研究(A)「グローバル南極学：大変化する氷床と地球環境の連鎖をつなぐ」
+                </a>
+              </h3>
+              <p class="project-meta">領域代表：青木 茂（北海道大学）／ウェブサイト：<a href="https://glaces.lowtem.hokudai.ac.jp/" target="_blank" rel="noopener noreferrer">https://glaces.lowtem.hokudai.ac.jp/</a></p>
+            </article>
 
-            <ul class="in-press-list">
-              <li>
-                Takahashi, K. D., Makabe, R., Hashida, G., Shimada, K.,
-                Yamamoto-Kawai, M., Kashiwase, H., Nomura, D., Tamura, T.,
-                <strong><u>Hirano, D.</u></strong>, Aoki, S., Ohshima, K. I., et al. (in press).
-                Contrasting Antarctic phytoplankton communities between the waters off Cape Darnley and the Sabrina Coast during sea-ice melting and forming seasons.
-                <em>Regional Studies in Marine Science</em>.
-              </li>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2017年度 〜 2021年度</span>
+                <span class="project-type">文部科学省 科学研究費助成事業 新学術領域研究(研究領域提案型)</span>
+              </div>
+              <h3 class="project-title">
+                <a href="http://grantarctic.jp/" target="_blank" rel="noopener noreferrer">
+                  新学術領域研究「熱―水―物質の巨大リザーバ 全球環境変動を駆動する南大洋・南極氷床」
+                </a>
+              </h3>
+              <p class="project-meta">領域代表：川村 賢二（国立極地研究所）／ウェブサイト：<a href="http://grantarctic.jp/" target="_blank" rel="noopener noreferrer">http://grantarctic.jp/</a></p>
+            </article>
+          </div>
+        </section>
 
-              <li>
-                Ito, M., Tamura, T., <strong><u>Hirano, D.</u></strong>, Ohshima, K. I., Nakano, Y.,
-                &amp; Aoki, S. (in press).
-                Acoustic detection of underwater air bubbles generated by breaking waves in an Antarctic polynya.
-                <em>Journal of Geophysical Research: Oceans</em>.
-              </li>
+        <!-- JARE 重点研究観測プロジェクト -->
+        <section class="project-category">
+          <h2>JARE 重点研究観測プロジェクト</h2>
 
-              <li>
-                Yamazaki, Y., Suganuma, Y., Itaki, T., Amano, T., Ishiwa, T.,
-                <strong><u>Hirano, D.</u></strong>, Hirabayashi, M., Matsuzaki, H., Yamagata, Y.,
-                Tokuda, Y., et al. (in press).
-                Authigenic Be Isotopes Record Circumpolar Deep Water Inflow and Subglacial Outflow in Antarctic Shelf Sediments.
-                <em>Geochemistry, Geophysics, Geosystems</em>.
-              </li>
-            </ul>
-          </section>
+          <div class="project-list">
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2022年度 〜 2027年度</span>
+                <span class="project-type">国立極地研究所 第Ⅹ期6か年計画 重点研究観測</span>
+              </div>
+              <h3 class="project-title">
+                <a href="https://www.nipr.ac.jp/antarctic/science-plan10/juuten04.html" target="_blank" rel="noopener noreferrer">
+                  「サブテーマ2：氷床―海氷―海洋結合システムの統合研究観測から探る東南極氷床融解メカニズムと物質循環変動」
+                </a>
+              </h3>
+              <p class="project-meta">PI：溝端 浩平（東京海洋大学）／ウェブサイト：<a href="https://www.nipr.ac.jp/antarctic/science-plan10/juuten04.html" target="_blank" rel="noopener noreferrer">https://www.nipr.ac.jp/antarctic/science-plan10/juuten04.html</a></p>
+            </article>
 
-          <!-- 2026 -->
-          <section class="publication-year" aria-labelledby="year-2026-heading">
-            <h2 id="year-2026-heading">2026</h2>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2016年度 〜 2021年度</span>
+                <span class="project-type">国立極地研究所 第Ⅸ期6か年計画 重点研究観測</span>
+              </div>
+              <h3 class="project-title">
+                <a href="https://www.nipr.ac.jp/antarctic/science-plan9/juuten2.html" target="_blank" rel="noopener noreferrer">
+                  「サブテーマ2：氷床・海氷縁辺域の総合観測から迫る大気−氷床−海洋の相互作用」
+                </a>
+              </h3>
+              <p class="project-meta">PI：青木 茂（北海道大学）／ウェブサイト：<a href="https://www.nipr.ac.jp/antarctic/science-plan9/juuten2.html" target="_blank" rel="noopener noreferrer">https://www.nipr.ac.jp/antarctic/science-plan9/juuten2.html</a></p>
+            </article>
+          </div>
+        </section>
 
-            <ol class="publication-list">
-              <li value="42">
-                Watanabe, Y., <strong><u>Hirano, D.</u></strong>, Ohashi, Y., Sugita, M., Nakano, Y.,
-                Makabe, R., &amp; Mizobata, K. (2026).
-                Three-dimensional reconstruction of glacier-derived freshwater in East Antarctica using an end-member-independent hydrographic parameterization.
-                <em>Nature Communications</em>,
-                <a class="pub-doi" href="https://doi.org/10.1038/s41467-026-77441-z" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s41467-026-77441-z</a>.
-              </li>
+        <!-- 北極研究プロジェクト -->
+        <section class="project-category">
+          <h2>北極研究プロジェクト</h2>
 
-              <li value="41">
-                Watanabe, Y. W., Pan, X. L., <strong><u>Hirano, D.</u></strong>, Shimada, K., Makabe, R.,
-                &amp; Li, B. F. (2026).
-                Global maps of silicate, nitrate, and carbon export and resupply fluxes from Biogeochemical Argo observations.
-                <em>Scientific Reports</em>,
-                <a class="pub-doi" href="https://doi.org/10.1038/s41598-026-67810-5" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s41598-026-67810-5</a>.
-              </li>
+          <div class="project-list">
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2020年度 〜 2024年度</span>
+                <span class="project-type">文部科学省 北極域研究推進プロジェクト (ArCS II)</span>
+              </div>
+              <h3 class="project-title">
+                「戦略目標①：先進的な観測システムを活用した北極環境変化の実態把握北極海洋環境観測研究、海洋課題：北極海環境動態の解明と汎用データセットの構築」
+              </h3>
+            </article>
 
-              <li value="40">
-                Sallée, J.-B., Swar, S., Carli, E., Droste, E., Olivier, L.,
-                Amblas, D., Castagno, P., Cusick, A., Delille, B.,
-                Deregibus, D., ..., <strong><u>Hirano, D.</u></strong>, et al. (2026).
-                Antarctica InSync Scientific Theme 1 – Southern Ocean physical and biogeochemical cycles in a changing climate.
-                <em>Scientific Committee on Antarctic Research (SCAR)</em>, 20–35,
-                <a class="pub-doi" href="https://doi.org/10.67382/NCZR5212" target="_blank" rel="noopener noreferrer">https://doi.org/10.67382/NCZR5212</a>.
-              </li>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2015年度 〜 2019年度</span>
+                <span class="project-type">文部科学省 北極域研究推進プロジェクト (ArCS)</span>
+              </div>
+              <h3 class="project-title">
+                「テーマ４：北極海洋環境観測研究」
+              </h3>
+            </article>
+          </div>
+        </section>
 
-              <li value="39">
-                Samori, N., Nomura, D., Tozawa, M., Nakaoka, S.-I., Yamazaki, K.,
-                <strong><u>Hirano, D.</u></strong>, Aoki, S., Sasaki, H., &amp; Murase, H. (2026).
-                Effects of glacial melting on carbonate chemistry and primary production in coastal waters off Mertz Glacier, East Antarctica.
-                <em>Elementa: Science of the Anthropocene</em>, 14, 00039,
-                <a class="pub-doi" href="https://doi.org/10.1525/elementa.2025.00039" target="_blank" rel="noopener noreferrer">https://doi.org/10.1525/elementa.2025.00039</a>.
-              </li>
-            </ol>
-          </section>
+        <!-- 科学研究費（研究代表者分、5件） -->
+        <section class="project-category">
+          <h2>科学研究費（研究代表者分、5件）</h2>
 
-          <!-- 2025 -->
-          <section class="publication-year" aria-labelledby="year-2025-heading">
-            <h2 id="year-2025-heading">2025</h2>
+          <div class="project-list">
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2024〜2028年度</span>
+                <span class="project-type">科学研究費補助金 学術変革領域研究（A）計画研究班</span>
+              </div>
+              <h3 class="project-title">
+                「温暖化時代の南極氷床―海洋相互作用の解明」
+              </h3>
+            </article>
 
-            <ol class="publication-list">
-              <li value="38">
-                Zhou, S., P. Dutrieux, C. F. Giulivi, A. Jenkins, A. Silvano, C. Auckland, E. P. Abrahamsen, M. P. Meredith, I. Vaňková, K. W. Nicholls, P. E. D. Davis, S. Østerhus, A. L. Gordon, C. J. Zappa, T. S. Dotto, T. A. Scambos, K. L. Gunn, S. R. Rintoul, S. Aoki, C. Stevens, C. Liu, S. Yun, T. Kim, W. S. Lee, M. Janout, T. Hattermann, J. Lauber, E. Darelius, A. Wåhlin, L. Middleton, P. Castagno, G. Budillon, K. J. Heywood, J. Graham, S. Dye, <strong><u>D. Hirano</u></strong>, and U. K. Miller (2025).
-                The OCEAN ICE mooring compilation: a standardised, pan-Antarctic database of ocean hydrography and current time series.
-                <em>Earth System Science Data</em>, 17(10), 5693–5706,
-                <a class="pub-doi" href="https://doi.org/10.5194/essd-17-5693-2025" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/essd-17-5693-2025</a>.
-              </li>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2024〜2027年度</span>
+                <span class="project-type">学術研究助成基金助成金 基盤研究（B）</span>
+              </div>
+              <h3 class="project-title">
+                「東南極最大級トッテン氷河への海洋熱供給の実態・変動性の解明」
+              </h3>
+            </article>
 
-              <li value="37">
-                Suganuma, Y., T. Itaki, Y. Haneda, K. Kusahara, T. Obase, T. Ishiwa, T. Omori, M. Ikehara, R. McKay, O. Seki, <strong><u>D. Hirano</u></strong>, M. Fujii, Y. Kato, A. Amano, Y. Tokuda, H. Iwatani, Y. Suzuki, M. Hirabayashi, H. Matsuzaki, T. Yamagata, M. Iwai, K. Katsuki, F. Jimenez-Espejo, H. Matsui, K. Seike, M. Kawamata, N. Nishida, M. Ito, S. Sugiyama, J. Okuno, T. Sawagaki, A. Abe-Ouchi, S. Aoki, and H. Miura (2025).
-                Antarctic ice-shelf collapse in Holocene driven by meltwater release feedbacks.
-                <em>Nature Geoscience</em>, 18(12), 1216–1223,
-                <a class="pub-doi" href="https://doi.org/10.1038/s41561-025-01829-7" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s41561-025-01829-7</a>.
-                <span class="pub-press">（<a href="https://www.nipr.ac.jp/info2025/20251107.html" target="_blank" rel="noopener noreferrer">プレスリリース：2025年11月7日、国立極地研究所・産業技術総合研究所・海洋研究開発機構・東京大学・高知大学・北海道大学 ほか</a>）</span>
-              </li>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2020～2023年度</span>
+                <span class="project-type">学術研究助成基金助成金 基盤研究（C）</span>
+              </div>
+              <h3 class="project-title">
+                「東南極白瀬氷河域の顕著な底面融解を引き起こす背景要因」
+              </h3>
+            </article>
 
-              <li value="36">
-                Watanabe, E., H. Ueno, T. Kodaira, A. Murata, S. Nishino, T. Ikenoue, M. Yamamoto, D. Nomura, H. Abe, Y. Kawaguchi, <strong><u>D. Hirano</u></strong>, Y. Zhang, and S. Yasunaka (2025).
-                Arctic marine environments regulated by ocean transport and air‒sea‒land interaction: Findings from the ArCS II Ocean Research Program.
-                <em>Polar Science</em>, 101205,
-                <a class="pub-doi" href="https://doi.org/10.1016/j.polar.2025.101205" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.polar.2025.101205</a>.
-              </li>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2020～2021年度</span>
+                <span class="project-type">科学研究費補助金 新学術領域公募研究（研究領域提案型）</span>
+              </div>
+              <h3 class="project-title">
+                「東南極トッテン棚氷域における氷床海洋相互作用の観測研究」
+              </h3>
+            </article>
 
-              <li value="35">
-                Mizobata, K., <strong><u>D. Hirano</u></strong>, K. Kusahara, S. Aoki, J. Inoue, S. Takao, and R. Makabe (2025).
-                Ocean response along the East Antarctic coastal margin to the southern annular mode.
-                <em>Geophysical Research Letters</em>, 52(7), e2024GL112914,
-                <a class="pub-doi" href="https://doi.org/10.1029/2024GL112914" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2024GL112914</a>.
-                <span class="pub-press">（<a href="https://www.kaiyodai.ac.jp/faculty/r/news/detail/_20.html" target="_blank" rel="noopener noreferrer">プレスリリース：2025年4月1日、東京海洋大学・国立極地研究所・海洋研究開発機構・北海道大学</a>）</span>
-              </li>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2017～2019年度</span>
+                <span class="project-type">学術研究助成基金助成金 若手研究（B）</span>
+              </div>
+              <h3 class="project-title">
+                「東南極沿岸域の氷床−海氷−海洋相互作用における暖水流入の影響評価」
+              </h3>
+            </article>
+          </div>
+        </section>
 
-              <li value="34">
-                Ito, M., K. D. Takahashi, R. Makabe, <strong><u>D. Hirano</u></strong>, K. I. Ohshima, T. Tamura, and S. Aoki (2025).
-                Intense frazil ice production promotes high algal biomass in newly-formed sea ice.
-                <em>Journal of Geophysical Research: Oceans</em>, 130(2), e2024JC021689,
-                <a class="pub-doi" href="https://doi.org/10.1029/2024JC021689" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2024JC021689</a>.
-              </li>
-            </ol>
-          </section>
+        <!-- 科学研究費（分担者分、7件） -->
+        <section class="project-category">
+          <h2>科学研究費（分担者分、7件）</h2>
 
-          <!-- 2024 -->
-          <section class="publication-year" aria-labelledby="year-2024-heading">
-            <h2 id="year-2024-heading">2024</h2>
+          <div class="project-list">
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2026〜2030年度</span>
+                <span class="project-type">科学研究費補助金 基盤研究（A）</span>
+              </div>
+              <h3 class="project-title">
+                「東南極氷床融解を駆動する海洋熱輸送とその変動要因の全容解明」
+              </h3>
+              <p class="project-meta">研究代表者：溝端 浩平（東京海洋大学）</p>
+            </article>
 
-            <ol class="publication-list">
-              <li value="33">
-                Yamazaki, K., K. Katsumata, <strong><u>D. Hirano</u></strong>, D. Nomura, H. Sasaki, H. Murase, and S. Aoki (2024).
-                Revisit of the circulation and water masses over the East Antarctic margin (80–150°E).
-                <em>Progress in Oceanography</em>, 225, 103285,
-                <a class="pub-doi" href="https://doi.org/10.1016/j.pocean.2024.103285" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.pocean.2024.103285</a>.
-              </li>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2024〜2028年度</span>
+                <span class="project-type">科学研究費補助金 学術変革領域研究（A）総括班</span>
+              </div>
+              <h3 class="project-title">
+                「グローバル南極学：大変化する氷床と地球環境の連鎖をつなぐ」
+              </h3>
+              <p class="project-meta">研究代表者：青木 茂（北海道大学）</p>
+            </article>
 
-              <li value="32">
-                Tozawa, M., D. Nomura, K. Yamazaki, M. Kiuchi, <strong><u>D. Hirano</u></strong>, S. Aoki, H. Sasaki, and H. Murase (2024).
-                Oceanographic factors determining the distribution of nutrients and primary production in the subpolar Southern Ocean.
-                <em>Progress in Oceanography</em>, 225, 103266,
-                <a class="pub-doi" href="https://doi.org/10.1016/j.pocean.2024.103266" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.pocean.2024.103266</a>.
-              </li>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2022〜2026年度</span>
+                <span class="project-type">科学研究費補助金 基盤研究（S）</span>
+              </div>
+              <h3 class="project-title">
+                「次世代南大洋海洋観測に対するパラメタリゼーション技術の開発と展開」
+              </h3>
+              <p class="project-meta">研究代表者：渡辺 豊（北海道大学）</p>
+            </article>
 
-              <li value="31">
-                Kusahara, K., <strong><u>D. Hirano</u></strong>, M. Fujii, A. D. Fraser, T. Tamura, K. Mizobata, G. D. Williams, and S. Aoki (2024).
-                Modeling seasonal-to-decadal ocean–cryosphere interactions along the Sabrina Coast, East Antarctica.
-                <em>The Cryosphere</em>, 18(1), 43–73,
-                <a class="pub-doi" href="https://doi.org/10.5194/tc-18-43-2024" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/tc-18-43-2024</a>.
-              </li>
-            </ol>
-          </section>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2021〜2025年度</span>
+                <span class="project-type">科学研究費補助金 基盤研究（A）</span>
+              </div>
+              <h3 class="project-title">
+                「氷床融解と深層循環の揺らぎをつなぐ－東南極亜寒帯循環から沿岸への輸送過程－」
+              </h3>
+              <p class="project-meta">研究代表者：青木 茂（北海道大学）</p>
+            </article>
 
-          <!-- 2023 -->
-          <section class="publication-year" aria-labelledby="year-2023-heading">
-            <h2 id="year-2023-heading">2023</h2>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2021〜2025年度</span>
+                <span class="project-type">科学研究費補助金 基盤研究（A）</span>
+              </div>
+              <h3 class="project-title">
+                「東南極における氷床－海氷－海洋システムの地域特性の解明」
+              </h3>
+              <p class="project-meta">研究代表者：田村 岳史（国立極地研究所）</p>
+            </article>
 
-            <ol class="publication-list">
-              <li value="30">
-                Xianliang, L. P., L. Xiangxing, R. Makabe, <strong><u>D. Hirano</u></strong>, &amp; Y. W. Watanabe (2023).
-                Spatiotemporal high-resolution mapping of biological production in the Southern Ocean.
-                <em>Communications Earth &amp; Environment</em>, 4, 488,
-                <a class="pub-doi" href="https://doi.org/10.1038/s43247-023-01067-y" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s43247-023-01067-y</a>.
-              </li>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2021〜2024年度</span>
+                <span class="project-type">学術研究助成基金助成金 基盤研究（B）</span>
+              </div>
+              <h3 class="project-title">
+                「東南極トッテン棚氷へ暖水を運ぶ巨大な定在海洋渦の成因と循環流量の変動要因の解明」
+              </h3>
+              <p class="project-meta">研究代表者：溝端 浩平（東京海洋大学）</p>
+            </article>
 
-              <li value="29">
-                Aoki, S., K. Yamazaki, <strong><u>D. Hirano</u></strong>, D. Nomura, and H. Murase (2023).
-                Distribution of stable oxygen isotope in seawater and implication on freshwater cycle off the coast from Wilkes to George V Land, East Antarctica.
-                <em>Progress in Oceanography</em>, 217, 103101,
-                <a class="pub-doi" href="https://doi.org/10.1016/j.pocean.2023.103101" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.pocean.2023.103101</a>.
-              </li>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2017〜2019年度</span>
+                <span class="project-type">科学研究費補助金 基盤研究（A）</span>
+              </div>
+              <h3 class="project-title">
+                「ポリニヤを起点とする熱塩／物質循環」
+              </h3>
+              <p class="project-meta">研究代表者：大島 慶一郎（北海道大学）</p>
+            </article>
+          </div>
+        </section>
 
-              <li value="28">
-                <strong><u>Hirano, D.</u></strong>, T. Tamura, K. Kusahara, M. Fujii, K. Yamazaki, Y. Nakayama, K. Ono, T. Itaki, Y. Aoyama, D. Simizu, K. Mizobata, K. I. Ohshima, Y. Nogi, S. R. Rintoul, E. van Wijk, J. S. Greenbaum, D. D. Blankenship, K. Saito, and S. Aoki (2023).
-                On-shelf circulation of warm water toward the Totten Ice Shelf in East Antarctica.
-                <em>Nature Communications</em>, 14, 4955,
-                <a class="pub-doi" href="https://doi.org/10.1038/s41467-023-39764-z" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s41467-023-39764-z</a>.
-                <span class="pub-press">（<a href="https://www.nipr.ac.jp/info2023/20230822.html" target="_blank" rel="noopener noreferrer">プレスリリース：2023年8月22日、国立極地研究所・海洋研究開発機構・産業技術総合研究所・東京海洋大学・北海道大学</a>）</span>
-              </li>
-            </ol>
-          </section>
+        <!-- 科学研究費以外（分担者分、4件） -->
+        <section class="project-category">
+          <h2>科学研究費以外（分担者分、4件）</h2>
 
-          <!-- 2022 -->
-          <section class="publication-year" aria-labelledby="year-2022-heading">
-            <h2 id="year-2022-heading">2022</h2>
+          <div class="project-list">
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2025〜2027年度</span>
+                <span class="project-type">宇宙航空研究開発機構 第4回地球観測研究公募共同研究</span>
+              </div>
+              <h3 class="project-title">
+                「AMSR3による薄氷厚・海氷生産・海氷融解アルゴリズムの開発と他センサープロダクトとの統合」
+              </h3>
+              <p class="project-meta">代表者：大島 慶一郎（北海道大学）</p>
+            </article>
 
-            <ol class="publication-list">
-              <li value="27">
-                Tamura, T. P., D. Nomura, <strong><u>D. Hirano</u></strong>, T. Tamura, M. Kiuchi, G. Hashida, R. Makabe, K. Ono, S. Ushio, Y. Nakayama, K. D. Takahashi, H. Sasaki, H. Murase, and S. Aoki (2022).
-                Impacts of basal melting of the Totten Ice Shelf and biological productivity on marine biogeochemical components in Sabrina Coast, East Antarctica.
-                <em>Global Biogeochemical Cycles</em>, 37(1), e2022GB007510,
-                <a class="pub-doi" href="https://doi.org/10.1029/2022GB007510" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2022GB007510</a>.
-              </li>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2019〜2021年度</span>
+                <span class="project-type">宇宙航空研究開発機構 第2回地球観測研究公募共同研究</span>
+              </div>
+              <h3 class="project-title">
+                「AMSR2での検証をベースにした、過去40年の海氷生産量グローバルデータの構築」
+              </h3>
+              <p class="project-meta">代表者：大島 慶一郎（北海道大学）</p>
+            </article>
 
-              <li value="26">
-                Aoki, S., T. Takahashi, K. Yamazaki, <strong><u>D. Hirano</u></strong>, K. Ono, K. Kusahara, T. Tamura, and G. D. Williams (2022).
-                Warm surface waters increase Antarctic ice shelf melt and delay dense water formation.
-                <em>Communications Earth &amp; Environment</em>, 3, 142,
-                <a class="pub-doi" href="https://doi.org/10.1038/s43247-022-00456-z" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s43247-022-00456-z</a>.
-                <span class="pub-press">（<a href="https://www.hokudai.ac.jp/news/pdf/220706_pr3.pdf" target="_blank" rel="noopener noreferrer">プレスリリース：2022年7月6日、北海道大学・国立極地研究所・海洋研究開発機構</a>）</span>
-              </li>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2017〜2018年度</span>
+                <span class="project-type">宇宙航空研究開発機構 第1回地球観測研究公募共同研究</span>
+              </div>
+              <h3 class="project-title">
+                「海氷タイプを識別できる全球汎用の薄氷厚アルゴリズムの開発と検証」
+              </h3>
+              <p class="project-meta">代表者：大島 慶一郎（北海道大学）</p>
+            </article>
 
-              <li value="25">
-                <strong><u>Hirano, D.</u></strong>, Y. Fukamachi, K. I. Ohshima, M. Ito, T. Tamura, D. Simizu, T. Takatsuka, A. R. Mahoney, J. Jones, C. George, B. Adams, and H. Eicken (2022).
-                Oceanic conditions in the Barrow Coastal Polynya revealed by a 10-year mooring time series.
-                <em>Progress in Oceanography</em>, 203, 102781,
-                <a class="pub-doi" href="https://doi.org/10.1016/j.pocean.2022.102781" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.pocean.2022.102781</a>.
-              </li>
-
-              <li value="24">
-                Tozawa, M., D. Nomura, S. Nakaoka, M. Kiuchi, K. Yamazaki, <strong><u>D. Hirano</u></strong>, S. Aoki, H. Sasaki, and H. Murase (2022).
-                Seasonal variations and drivers of surface ocean pCO2 in the seasonal ice zone of the eastern Indian sector, Southern Ocean.
-                <em>Journal of Geophysical Research: Oceans</em>, 127(3), e2021JC017953,
-                <a class="pub-doi" href="https://doi.org/10.1029/2021JC017953" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2021JC017953</a>.
-              </li>
-            </ol>
-          </section>
-
-          <!-- 2021 -->
-          <section class="publication-year" aria-labelledby="year-2021-heading">
-            <h2 id="year-2021-heading">2021</h2>
-
-            <ol class="publication-list">
-              <li value="23">
-                Kokubun, N., Y. Tanabe, <strong><u>D. Hirano</u></strong>, V. Mensah, T. Tamura, S. Aoki, and A. Takahashi (2021).
-                Shoreward intrusion of oceanic surface waters alters physical and biological ocean structures on the Antarctic continental shelf during winter: Observations from instrumented seals.
-                <em>Limnology and Oceanography</em>, 66(10), 3740–3753,
-                <a class="pub-doi" href="https://doi.org/10.1002/lno.11914" target="_blank" rel="noopener noreferrer">https://doi.org/10.1002/lno.11914</a>.
-                <span class="pub-press">（<a href="https://www.nipr.ac.jp/info/notice/20211227.html" target="_blank" rel="noopener noreferrer">プレスリリース：2021年12月27日、国立極地研究所・北海道大学</a>）</span>
-              </li>
-
-              <li value="22">
-                Mizuta, G., Y. Fukamachi, D. Simizu, Y. Matsumura, Y. Kitade, <strong><u>D. Hirano</u></strong>, M. Fujii, Y. Nogi, and K. I. Ohshima (2021).
-                Seasonal Evolution of Cape Darnley Bottom Water Revealed by Mooring Measurements.
-                <em>Frontiers in Marine Science</em>, 8, 657119,
-                <a class="pub-doi" href="https://doi.org/10.3389/fmars.2021.657119" target="_blank" rel="noopener noreferrer">https://doi.org/10.3389/fmars.2021.657119</a>.
-              </li>
-
-              <li value="21">
-                <strong><u>Hirano, D.</u></strong>, K. Mizobata, H. Sasaki, H. Murase, T. Tamura, and S. Aoki (2021).
-                Poleward eddy-induced warm water transport across a shelf break off Totten Ice Shelf, East Antarctica.
-                <em>Communications Earth &amp; Environment</em>, 2, 153,
-                <a class="pub-doi" href="https://doi.org/10.1038/s43247-021-00217-4" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s43247-021-00217-4</a>.
-                <span class="pub-press">（<a href="https://www.nipr.ac.jp/info/notice/20211026-2.html" target="_blank" rel="noopener noreferrer">プレスリリース：2021年10月26日、国立極地研究所・東京海洋大学・水産研究教育機構・北海道大学</a>）</span>
-              </li>
-
-              <li value="20">
-                Yamazaki, K., S. Aoki, K. Katsumata, <strong><u>D. Hirano</u></strong>, and Y. Nakayama (2021).
-                Multidecadal poleward shift of the southern boundary of the Antarctic Circumpolar Current off East Antarctica.
-                <em>Science Advances</em>, 7(25), eabf8755,
-                <a class="pub-doi" href="https://doi.org/10.1126/sciadv.abf8755" target="_blank" rel="noopener noreferrer">https://doi.org/10.1126/sciadv.abf8755</a>.
-                <span class="pub-press">（<a href="https://www.ees.hokudai.ac.jp/?p=302" target="_blank" rel="noopener noreferrer">プレスリリース：2021年6月14日、北海道大学・海洋研究開発機構</a>）</span>
-              </li>
-
-              <li value="19">
-                Kiuchi, M., D. Nomura, <strong><u>D. Hirano</u></strong>, T. Tamura, G. Hashida, S. Ushio, D. Simizu, K. Ono, and S. Aoki (2021).
-                The effect of basal melting of the Shirase Glacier Tongue on the CO2 system in Lützow-Holm Bay, East Antarctica.
-                <em>Journal of Geophysical Research: Biogeosciences</em>, 126(3), e2020JG005762,
-                <a class="pub-doi" href="https://doi.org/10.1029/2020JG005762" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2020JG005762</a>.
-              </li>
-
-              <li value="18">
-                Kusahara, K., <strong><u>D. Hirano</u></strong>, M. Fujii, A. Fraser, and T. Tamura (2021).
-                Modeling intensive ocean-cryosphere interactions in Lützow-Holm Bay, East Antarctica.
-                <em>The Cryosphere</em>, 15(4), 1697–1717,
-                <a class="pub-doi" href="https://doi.org/10.5194/tc-15-1697-2021" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/tc-15-1697-2021</a>.
-              </li>
-            </ol>
-          </section>
-
-          <!-- 2020 -->
-          <section class="publication-year" aria-labelledby="year-2020-heading">
-            <h2 id="year-2020-heading">2020</h2>
-
-            <ol class="publication-list">
-              <li value="17">
-                Aoki, S., K. Yamazaki, <strong><u>D. Hirano</u></strong>, K. Katsumata, K. Shimada, Y. Kitade, Y. Sasaki, and H. Murase (2020).
-                Reversal of freshening trend of Antarctic Bottom Water in the Australian-Antarctic Basin during 2010s.
-                <em>Scientific Reports</em>, 10, 14415,
-                <a class="pub-doi" href="https://doi.org/10.1038/s41598-020-71290-6" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s41598-020-71290-6</a>.
-                <span class="pub-press">（<a href="https://www2.lowtem.hokudai.ac.jp/news/news2020.html" target="_blank" rel="noopener noreferrer">プレスリリース：2020年9月14日、北海道大学・海洋研究開発機構・東京海洋大学</a>）</span>
-              </li>
-
-              <li value="16">
-                <strong><u>Hirano, D.</u></strong>, T. Tamura, K. Kusahara, K. I. Ohshima, K. W. Nicholls, S. Ushio, D. Simizu, K. Ono, M. Fujii, Y. Nogi, and S. Aoki (2020).
-                Strong ice-ocean interaction beneath Shirase Glacier Tongue in East Antarctica.
-                <em>Nature Communications</em>, 11, 4221,
-                <a class="pub-doi" href="https://doi.org/10.1038/s41467-020-17527-4" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/s41467-020-17527-4</a>.
-                <span class="pub-press">（<a href="https://www.hokudai.ac.jp/news/2020/08/post-716.html" target="_blank" rel="noopener noreferrer">プレスリリース：2020年8月24日、北海道大学・国立極地研究所・海洋研究開発機構</a>）</span>
-              </li>
-
-              <li value="15">
-                Aoki, S., K. Ono, <strong><u>D. Hirano</u></strong>, and T. Tamura (2020).
-                Continuous winter oceanic profiling in the Cape Darnley Polynya, East Antarctica.
-                <em>Journal of Oceanography</em>, 76(5), 365–372,
-                <a class="pub-doi" href="https://doi.org/10.1007/s10872-020-00550-w" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/s10872-020-00550-w</a>.
-              </li>
-
-              <li value="14">
-                Murakami, K., D. Nomura, G. Hashida, S. Nakaoka, Y. Kitade, <strong><u>D. Hirano</u></strong>, T. Hirawake, and K. I. Ohshima (2020).
-                Strong biological carbon uptake and carbonate chemistry associated with dense shelf water outflows in the Cape Darnley polynya, East Antarctica.
-                <em>Marine Chemistry</em>, 225, 103842,
-                <a class="pub-doi" href="https://doi.org/10.1016/j.marchem.2020.103842" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.marchem.2020.103842</a>.
-              </li>
-
-              <li value="13">
-                Aoki, S., K. Katsumata, M. Hamaguchi, A. Noda, Y. Kitade, K. Shimada, <strong><u>D. Hirano</u></strong>, D. Simizu, Y. Aoyama, K. Doi, and Y. Nogi (2020).
-                Freshening of Antarctic Bottom Water Off Cape Darnley, East Antarctica.
-                <em>Journal of Geophysical Research: Oceans</em>, 125(10), e2020JC016374,
-                <a class="pub-doi" href="https://doi.org/10.1029/2020JC016374" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2020JC016374</a>.
-              </li>
-
-              <li value="12">
-                菅沼 悠介、石輪 健樹、川又 基人、奥野 淳一、香月 興太、板木 拓也、関 宰、金田 平太郎、松井 浩紀、羽田 裕貴、藤井 昌和、<strong><u>平野 大輔</u></strong> (2020).
-                東南極における海域-陸域シームレス堆積物掘削研究の展望.
-                <em>地学雑誌</em>, 129(5), 591–610,
-                <a class="pub-doi" href="https://doi.org/10.5026/jgeography.129.591" target="_blank" rel="noopener noreferrer">https://doi.org/10.5026/jgeography.129.591</a>.
-              </li>
-            </ol>
-          </section>
-
-          <!-- 2019 -->
-          <section class="publication-year" aria-labelledby="year-2019-heading">
-            <h2 id="year-2019-heading">2019</h2>
-
-            <ol class="publication-list">
-              <li value="11">
-                Ito, M., K. I. Ohshima, Y. Fukamachi, <strong><u>D. Hirano</u></strong>, A. R. Mahoney, J. Jones, T. Takatsuka, and H. Eicken (2019).
-                Favorable Conditions for Suspension Freezing in an Arctic Coastal Polynya.
-                <em>Journal of Geophysical Research: Oceans</em>, 124(12), 8701–8719,
-                <a class="pub-doi" href="https://doi.org/10.1029/2019JC015536" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2019JC015536</a>.
-              </li>
-            </ol>
-          </section>
-
-          <!-- 2018 -->
-          <section class="publication-year" aria-labelledby="year-2018-heading">
-            <h2 id="year-2018-heading">2018</h2>
-
-            <ol class="publication-list">
-              <li value="10">
-                <strong><u>Hirano, D.</u></strong>, Y. Fukamachi, K. I. Ohshima, E. Watanabe, A. R. Mahoney, H. Eicken, M. Itoh, D. Simizu, K. Iwamoto, J. Jones, T. Takatsuka, T. Kikuchi, and T. Tamura (2018).
-                Winter water formation in coastal polynyas of the eastern Chukchi Shelf: Pacific and Atlantic influences.
-                <em>Journal of Geophysical Research: Oceans</em>, 123(8), 5688–5705,
-                <a class="pub-doi" href="https://doi.org/10.1029/2017JC013307" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2017JC013307</a>.
-              </li>
-            </ol>
-          </section>
-
-          <!-- 2017 -->
-          <section class="publication-year" aria-labelledby="year-2017-heading">
-            <h2 id="year-2017-heading">2017</h2>
-
-            <ol class="publication-list">
-              <li value="9">
-                Makabe, R., A. Tanimura, T. Tamura, <strong><u>D. Hirano</u></strong>, K. Shimada, F. Hashihama, and M. Fukuchi (2017).
-                Meso-zooplankton abundance and spatial distribution off Lützow-Holm Bay during austral summer 2007-2008.
-                <em>Polar Science</em>, 12, 25–33,
-                <a class="pub-doi" href="https://doi.org/10.1016/j.polar.2016.09.002" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.polar.2016.09.002</a>.
-              </li>
-            </ol>
-          </section>
-
-          <!-- 2016 -->
-          <section class="publication-year" aria-labelledby="year-2016-heading">
-            <h2 id="year-2016-heading">2016</h2>
-
-            <ol class="publication-list">
-              <li value="8">
-                <strong><u>Hirano, D.</u></strong>, Y. Fukamachi, E. Watanabe, K. I. Ohshima, K. Iwamoto, A. R. Mahoney, H. Eicken, D. Simizu, and T. Tamura (2016).
-                A wind-driven, hybrid latent and sensible heat coastal polynya off Barrow, Alaska.
-                <em>Journal of Geophysical Research: Oceans</em>, 121(1), 980–997,
-                <a class="pub-doi" href="https://doi.org/10.1002/2015JC011318" target="_blank" rel="noopener noreferrer">https://doi.org/10.1002/2015JC011318</a>.
-              </li>
-            </ol>
-          </section>
-
-          <!-- 2015 -->
-          <section class="publication-year" aria-labelledby="year-2015-heading">
-            <h2 id="year-2015-heading">2015</h2>
-
-            <ol class="publication-list">
-              <li value="7">
-                <strong><u>Hirano, D.</u></strong>, Y. Kitade, K. I. Ohshima, and Y. Fukamachi (2015).
-                The role of turbulent mixing in the modified Shelf Water overflows that produce Cape Darnley Bottom Water.
-                <em>Journal of Geophysical Research: Oceans</em>, 120(2), 910–922,
-                <a class="pub-doi" href="https://doi.org/10.1002/2014JC010059" target="_blank" rel="noopener noreferrer">https://doi.org/10.1002/2014JC010059</a>.
-              </li>
-            </ol>
-          </section>
-
-          <!-- 2013 -->
-          <section class="publication-year" aria-labelledby="year-2013-heading">
-            <h2 id="year-2013-heading">2013</h2>
-
-            <ol class="publication-list">
-              <li value="6">
-                Ohshima, K. I., Y. Fukamachi, G. D. Williams, S. Nihashi, F. Roquet, Y. Kitade, T. Tamura, <strong><u>D. Hirano</u></strong>, L. Herraiz-Borreguero, I. Field, M. Hindell, S. Aoki, and M. Wakatsuchi (2013).
-                Antarctic Bottom Water production by intense sea-ice formation in the Cape Darnley polynya.
-                <em>Nature Geoscience</em>, 6(3), 235–240,
-                <a class="pub-doi" href="https://doi.org/10.1038/ngeo1738" target="_blank" rel="noopener noreferrer">https://doi.org/10.1038/ngeo1738</a>.
-                <span class="pub-press">（<a href="https://www2.lowtem.hokudai.ac.jp/wwwod/~ohshima/ohshima130301_hokudai-m.pdf" target="_blank" rel="noopener noreferrer">プレスリリース：2013年3月4日、北海道大学・東京海洋大学・国立極地研究所</a>）</span>
-              </li>
-            </ol>
-          </section>
-
-          <!-- 2011 -->
-          <section class="publication-year" aria-labelledby="year-2011-heading">
-            <h2 id="year-2011-heading">2011</h2>
-
-            <ol class="publication-list">
-              <li value="5">
-                Koubbi, P., P.-A. Hulley, P. Pruvost, P. Henri, J.-P. Labat, V. Wadley, <strong><u>D. Hirano</u></strong>, and M. Moteki (2011).
-                Size distribution of meso- and bathypelagic fish in the Dumont d’Urville Sea (East Antarctica) during the CEAMARC surveys.
-                <em>Polar Science</em>, 5(2), 195–210,
-                <a class="pub-doi" href="https://doi.org/10.1016/j.polar.2011.03.003" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.polar.2011.03.003</a>.
-              </li>
-
-              <li value="4">
-                Amakasu, K., A. Ono, <strong><u>D. Hirano</u></strong>, M. Moteki, and T. Ishimaru (2011).
-                Distribution and density of Antarctic krill (Euphausia superba) and ice krill (E. crystallorophias) off Adélie Land in austral summer 2008 estimated by acoustical methods.
-                <em>Polar Science</em>, 5(2), 187–194,
-                <a class="pub-doi" href="https://doi.org/10.1016/j.polar.2011.04.002" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.polar.2011.04.002</a>.
-              </li>
-
-              <li value="3">
-                Ono, A., M. Moteki, K. Amakasu, R. Toda, N. Horimoto, <strong><u>D. Hirano</u></strong>, T. Ishimaru, and G. W. Hosie (2011).
-                Euphausiid community structure and population structure of Euphausia superba off Adélie Land in the Southern Ocean during austral summer 2003, 2005 and 2008.
-                <em>Polar Science</em>, 5(2), 146–165,
-                <a class="pub-doi" href="https://doi.org/10.1016/j.polar.2011.04.006" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.polar.2011.04.006</a>.
-              </li>
-            </ol>
-          </section>
-
-          <!-- 2010 -->
-          <section class="publication-year" aria-labelledby="year-2010-heading">
-            <h2 id="year-2010-heading">2010</h2>
-
-            <ol class="publication-list">
-              <li value="2">
-                Koubbi, P., C. Ozouf-Costaz, A. Goarant, M. Moteki, P.-A. Hulley, R. Causse, A. Dettai, G. Duhamel, P. Pruvost, E. Tavernier, A. L. Post, R. J. Beaman, S. R. Rintoul, T. Hirawake, <strong><u>D. Hirano</u></strong>, T. Ishimaru, M. Riddle, and G. Hosie (2010).
-                Estimating the biodiversity of the East Antarctic shelf and oceanic zone for ecoregionalisation: Example of the ichthyofauna of the CEAMARC (Collaborative East Antarctic Marine Census) CAML surveys.
-                <em>Polar Science</em>, 4(2), 115–133,
-                <a class="pub-doi" href="https://doi.org/10.1016/j.polar.2010.04.012" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.polar.2010.04.012</a>.
-              </li>
-
-              <li value="1">
-                <strong><u>Hirano, D.</u></strong>, Y. Kitade, H. Nagashima, and M. Matsuyama (2010).
-                Characteristics of Observed Turbulent Mixing across the Antarctic Slope Front at 140°E, East Antarctica.
-                <em>Journal of Oceanography</em>, 66(1), 95–104,
-                <a class="pub-doi" href="https://doi.org/10.1007/s10872-010-0008-x" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/s10872-010-0008-x</a>.
-              </li>
-            </ol>
-          </section>
-        </div>
+            <article class="project-item">
+              <div class="project-item-head">
+                <span class="project-period">2017〜2019年度</span>
+                <span class="project-type">東レ科学財団 科学技術研究助成</span>
+              </div>
+              <h3 class="project-title">
+                「東南極氷床の融解機構と生態系への影響」
+              </h3>
+              <p class="project-meta">代表者：菅沼 悠介（国立極地研究所）</p>
+            </article>
+          </div>
+        </section>
       </div>
     </section>
   </main>
