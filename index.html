@@ -14,28 +14,17 @@
   <style>
     /* =========================================================
        1. ヘッダー（ヒーローエリア）のビジュアルアクセント
-       背景イラストの存在感を高め、プロフィール写真をやや小ぶりに調整
        ========================================================= */
     .hero {
       position: relative;
       background:
-        linear-gradient(135deg, rgba(234, 246, 248, 0.82), rgba(255, 255, 255, 0.88)),
+        linear-gradient(135deg, rgba(234, 246, 248, 0.85), rgba(255, 255, 255, 0.90)),
         url("assets/images/shirase-illustration.jpg") center 35% / cover no-repeat;
       border-bottom: 1px solid var(--line);
     }
 
-    /* 背景のイラストを見せつつバランスをとるため、写真をやや小さく（幅360px上限） */
-    .hero-photo {
-      width: min(100%, 360px);
-      justify-self: end;
-    }
-    .hero-grid {
-      grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr);
-      gap: 48px;
-    }
-
     /* =========================================================
-       News & Topics スタイル（ファーストビュー直下のスマートな見せ方）
+       News & Topics スタイル
        ========================================================= */
     .section--news {
       padding: 48px 0;
@@ -94,6 +83,7 @@
       font-size: 0.95rem;
       color: var(--ink);
       line-height: 1.6;
+      word-break: break-word;
     }
     .news-content a {
       color: var(--navy);
@@ -102,21 +92,6 @@
     }
     .news-content a:hover {
       color: var(--ocean);
-    }
-    @media (max-width: 760px) {
-      .section--news {
-        padding: 36px 0;
-      }
-      .news-item {
-        grid-template-columns: 1fr;
-        gap: 6px;
-        padding: 12px 14px;
-      }
-      .news-item-meta {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
     }
 
     .theme-stack {
@@ -151,6 +126,7 @@
       text-align: justify;
       color: var(--ink);
       font-size: 1rem;
+      word-break: break-word;
     }
     .theme-card--full p:last-of-type {
       margin-bottom: 0;
@@ -164,20 +140,7 @@
     .theme-card--full a:hover {
       color: var(--navy);
     }
-    @media (max-width: 760px) {
-      .hero-photo {
-        width: min(100%, 300px);
-      }
-      .theme-card--full {
-        padding: 24px 20px;
-      }
-      .theme-card--full h3 {
-        font-size: 1.4rem;
-      }
-      .theme-card--full h4 {
-        font-size: 1.1rem;
-      }
-    }
+
     .more-pubs-link-wrap {
       text-align: center;
       margin-top: 3rem;
@@ -187,7 +150,7 @@
       flex-wrap: wrap;
     }
 
-    /* 連絡先＆Googleマップ レイアウト用スタイル */
+    /* 連絡先＆Googleマップ レイアウト */
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
@@ -221,20 +184,8 @@
       color: var(--ocean);
       text-decoration: underline;
     }
-    @media (max-width: 860px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-      .map-box iframe {
-        height: 240px;
-      }
-    }
 
-    /* =========================================================
-       2. フッターのビジュアルアクセント
-       文言なし・純粋なイラストのパノラマ帯
-       ========================================================= */
+    /* フッターアクセント */
     .footer-visual-accent {
       position: relative;
       height: 190px;
@@ -248,9 +199,41 @@
       inset: 0;
       background: linear-gradient(to bottom, rgba(246, 250, 251, 0.15) 0%, rgba(11, 45, 69, 0.85) 100%);
     }
-    @media (max-width: 760px) {
+
+    /* =========================================================
+       レスポンシブ個別上書き
+       ========================================================= */
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .section--news {
+        padding: 36px 0;
+      }
+      .news-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 12px 14px;
+      }
+      .theme-card--full {
+        padding: 24px 20px;
+      }
+      .theme-card--full h3 {
+        font-size: 1.35rem;
+      }
+      .theme-card--full h4 {
+        font-size: 1.08rem;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .map-box iframe {
+        height: 230px;
+      }
       .footer-visual-accent {
-        height: 130px;
+        height: 120px;
       }
     }
   </style>
@@ -275,10 +258,10 @@
   </header>
 
   <main>
-    <!-- ヘッダー（ヒーロー）：イラストを背景に敷き、写真をやや小さく配置 -->
+    <!-- ヒーローエリア -->
     <section class="hero">
       <div class="container hero-grid">
-        <div>
+        <div class="hero-text">
           <p class="eyebrow">Polar Oceanography · Physical Oceanography</p>
           <h1>平野 大輔<span class="name-en">Daisuke HIRANO</span></h1>
 
@@ -303,7 +286,7 @@
       </div>
     </section>
 
-    <!-- News & Topics セクション（研究紹介の前に配置） -->
+    <!-- News & Topics セクション -->
     <section id="news" class="section section-alt section--news">
       <div class="container">
         <h2 class="section-heading">News &amp; Topics</h2>
@@ -420,7 +403,7 @@
       </div>
     </section>
 
-    <!-- 外部リンクセクション -->
+    <!-- 外部リンク -->
     <section id="links" class="section">
       <div class="container">
         <h2 class="section-heading">外部リンク</h2>
@@ -483,7 +466,6 @@
     </section>
   </main>
 
-  <!-- フッター直上のパノラマ・ビジュアルアクセント帯（文字なし） -->
   <aside class="footer-visual-accent" aria-label="フッタービジュアルアクセント"></aside>
 
   <footer class="site-footer">
