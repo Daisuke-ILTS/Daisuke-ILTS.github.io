@@ -20,7 +20,6 @@
     .news-content { font-size: .95rem; color: var(--ink); line-height: 1.6; word-break: break-word; }
     .news-content a { color: var(--navy); text-decoration: underline; text-underline-offset: .16em; }
     .news-content a:hover { color: var(--ocean); }
-
     .theme-stack { display: flex; flex-direction: column; gap: 36px; }
     .theme-card--full { padding: 36px 40px; }
     .theme-card--full h3 { font-size: 1.65rem; color: var(--navy); border-bottom: 2px solid var(--ice); padding-bottom: .65rem; margin: 0 0 1.5rem; letter-spacing: .02em; }
@@ -30,8 +29,6 @@
     .theme-card--full p:last-of-type { margin-bottom: 0; }
     .theme-card--full a { color: var(--ocean); text-decoration: underline; text-underline-offset: .16em; font-weight: 500; }
     .theme-card--full a:hover { color: var(--navy); }
-
-    /* 棚氷融解・北極沿岸ポリニヤの比較図：PCでは2枚横並び、スマホでは縦並び */
     .research-figure-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 2rem 0 2.6rem; align-items: stretch; }
     .research-figure { display: flex; flex-direction: column; height: 100%; margin: 0; padding: 14px; background: #fafcfd; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 4px 16px rgba(11,45,69,.04); }
     .research-figure a { display: flex; align-items: center; justify-content: center; flex: 1 1 auto; min-height: 0; line-height: 0; border-radius: calc(var(--radius) - 7px); overflow: hidden; background: var(--white); }
@@ -39,7 +36,6 @@
     .research-figure img { display: block; width: 100%; max-height: 300px; object-fit: contain; height: auto; border-radius: calc(var(--radius) - 7px); transition: transform .2s ease; }
     .research-figure a:hover img { transform: scale(1.015); }
     .research-figure figcaption { min-height: 3.3em; margin-top: 12px; color: var(--ink); font-size: .9rem; font-weight: 500; line-height: 1.65; text-align: left; }
-
     .more-pubs-link-wrap { text-align: center; margin-top: 3rem; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
     .contact-grid { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(320px,.9fr); gap: 32px; align-items: start; }
     .contact-box { max-width: 100%; }
@@ -49,7 +45,6 @@
     .map-caption a { color: var(--ocean); text-decoration: underline; }
     .footer-visual-accent { position: relative; height: 190px; background: url("assets/images/shirase-illustration.jpg") center 60% / cover no-repeat; border-top: 1px solid var(--line); overflow: hidden; }
     .footer-visual-accent::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(246,250,251,.15) 0%, rgba(11,45,69,.85) 100%); }
-
     @media (max-width: 768px) {
       .hero-grid { grid-template-columns: 1fr; gap: 28px; }
       .section--news { padding: 36px 0; }
@@ -68,109 +63,23 @@
     }
   </style>
 </head>
-
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a class="site-name" href="index.html" aria-label="ホームページへ移動">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-        <span>HOME</span>
-      </a>
+      <a class="site-name" href="index.html" aria-label="ホームページへ移動"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg><span>HOME</span></a>
       <nav class="site-nav" aria-label="メインメニュー">
-        <a href="#news">News &amp; Topics</a>
-        <a href="#about">研究紹介</a>
-        <a href="#research">研究テーマ</a>
-        <a href="publications.html">論文リスト</a>
-        <a href="projects.html">プロジェクト</a>
-        <a href="education.html">教育</a>
-        <a href="outreach.html">アウトリーチ</a>
-        <a href="#links">外部リンク</a>
-        <a href="#contact">連絡先</a>
+        <a href="#news">News &amp; Topics</a><a href="#about">研究紹介</a><a href="#research">研究テーマ</a><a href="publications.html">論文リスト</a><a href="projects.html">プロジェクト</a><a href="education.html">教育</a><a href="outreach.html">アウトリーチ</a><a href="#links">外部リンク</a><a href="#contact">連絡先</a>
       </nav>
     </div>
   </header>
-
   <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <p class="eyebrow">Physical Oceanography · Polar Oceanography</p>
-          <h1>平野 大輔<span class="name-en">Daisuke HIRANO</span></h1>
-          <p class="affiliation">北海道大学 低温科学研究所<br>水・物質循環部門／大気海洋相互作用分野<br>准教授</p>
-          <p class="field">海洋物理学・極域海洋学</p>
-        </div>
-        <figure class="hero-photo">
-          <img src="assets/images/profile.jpg" alt="第67次南極地域観測隊での観測風景" width="1620" height="1080">
-          <figcaption>第67次南極地域観測隊にて</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section id="news" class="section section-alt section--news">
-      <div class="container">
-        <h2 class="section-heading">News &amp; Topics</h2>
-        <div class="news-list">
-          <article class="news-item"><span class="news-date">2026.09</span><span class="news-tag tag--info">お知らせ</span><div class="news-content">個人ウェブサイトを開設しました。</div></article>
-          <article class="news-item"><span class="news-date">2026.09</span><span class="news-tag tag--paper">論文出版</span><div class="news-content">共著論文（Watanabe et al.）が <em>Nature Communications</em> 誌に出版されました。<a href="https://www.nature.com/articles/s41467-026-77441-z" target="_blank" rel="noopener noreferrer">nature</a></div></article>
-          <article class="news-item"><span class="news-date">2026.09</span><span class="news-tag tag--paper">論文出版</span><div class="news-content">共著論文（Watanabe et al.）が <em>Scientific Reports</em> 誌に出版されました。<a href="https://doi.org/10.1038/s41598-026-67810-5" target="_blank" rel="noopener noreferrer">Scientific Reports</a></div></article>
-          <article class="news-item"><span class="news-date">2026.07.04</span><span class="news-tag tag--event">イベント</span><div class="news-content">日本科学未来館にて「<a href="https://www.miraikan.jst.go.jp/events/202607044597.html" target="_blank" rel="noopener noreferrer">研究者トーク＆南極ライブ中継！ 南極観測隊の仕事と生活</a>」に登壇しました。</div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="container">
-        <h2 class="section-heading">研究紹介</h2>
-        <p class="lead">海洋物理学的アプローチから、北極・南極域における海洋と氷の相互作用を研究しています。極域では、海洋・海氷・氷床に急激な変化が生じていますが、特に、海洋が氷床や海氷を融かすメカニズム、そして極域特有の水塊形成・変質プロセスおよび海洋循環の解明に力を入れています。現場観測を研究の核としつつ、数値実験の結果や衛星観測プロダクトも組み合わせることで、現象の多角的・包括的な理解を目指しています。</p>
-      </div>
-    </section>
-
-    <section id="research" class="section section-alt">
-      <div class="container">
-        <h2 class="section-heading">研究テーマ</h2>
-        <div class="theme-stack">
-          <article class="theme-card theme-card--full">
-            <h3>南極研究</h3>
-            <p>東南極沿岸域は、海氷生産が活発な沿岸ポリニヤが点在し、海洋の熱塩循環を駆動する低温・高密度の南極底層水が形成・沈み込む重要な海域を含んでいます。同時に、沖合を起源とする暖水である周極深層水の流入をきっかけに氷床の質量損失が加速する海域も局所的に存在するなど、海洋と雪氷圏が複雑に絡み合う領域です。白瀬氷河―リュツォ・ホルム湾、アメリー棚氷―ケープダンレーポリニヤ、トッテン氷河―ダルトンポリニヤ、メルツ氷河―メルツポリニヤという、東南極沿岸域を特徴づける主要海域を対象に研究を推進してきました。</p>
-            <h4>氷床と海洋の相互作用(棚氷融解プロセス)</h4>
-            <p>東南極沿岸域は、広く沖合の暖水から隔てられた「冷たい海」として特徴づけられ、氷舌や棚氷の底面融解は総じて弱く、西南極に比べて安定的な氷床と認識されていました。しかし近年、衛星観測データなどの解析から、白瀬氷河やトッテン氷河の周辺で局所的に東南極平均の10倍以上に達する底面融解強度が推定され、特に海面上昇に換算して4mに相当する氷量を持つトッテン氷河では顕著な質量損失が報告されるなど、東南極の一部でも氷床不安定化の兆しが現れつつあります。この課題に対し、英国・米国・豪州との国際共同研究を通じて、白瀬氷河やトッテン氷河域で生じている顕著な暖水流入を伴う氷床―海洋相互作用の実態解明に取り組んできました。</p>
-            <div class="research-figure-grid" aria-label="トッテン氷河と白瀬氷河の底面融解プロセスの模式図">
-              <figure class="research-figure"><a href="assets/images/totten-ocean-circulation.png" target="_blank" rel="noopener noreferrer" aria-label="トッテン氷河の模式図を拡大表示"><img src="assets/images/totten-ocean-circulation.png" alt="沖合からトッテン氷河へ向かう暖かい海水のルート" loading="lazy"></a><figcaption>沖合からトッテン氷河へ向かう暖かい海水のルート（Hirano et al., 2023）。</figcaption></figure>
-              <figure class="research-figure"><a href="assets/images/shirase-glacier-process.png" target="_blank" rel="noopener noreferrer" aria-label="白瀬氷河の模式図を拡大表示"><img src="assets/images/shirase-glacier-process.png" alt="沖合の暖かい海水の流入によって生じる白瀬氷河の底面融解プロセス" loading="lazy"></a><figcaption>沖合の暖かい海水の流入によって生じる白瀬氷河の底面融解プロセス（Hirano et al., 2020）。</figcaption></figure>
-            </div>
-            <h4>トッテン氷河域(東南極最大級)</h4>
-            <p>2015年に豪州の研究グループが棚氷下への暖水流入を初めて観測（<a href="https://doi.org/10.1126/sciadv.1601610" target="_blank" rel="noopener noreferrer">Rintoul et al., 2016</a>）し、その後、日本もJAREの枠組みで2018年3月(JARE59)から本格的にトッテン観測に着手しました。水産庁の調査船「開洋丸」による南極航海では、氷河沖の陸棚端から大陸斜面にかけての詳細な海洋観測を実施し、氷河沖に定在する100〜200km規模の海洋渦が、沖合の暖水を大陸方向へ効率的に輸送していることを明らかにしました（<a href="https://doi.org/10.1038/s43247-021-00217-4" target="_blank" rel="noopener noreferrer">Hirano et al., 2021</a>）。また、JARE重点研究観測プロジェクトでは、現場観測を行う上で不可欠な海底地形すら未知だったトッテン氷河近傍域での研究を南極観測船「しらせ」により実現し、現在もトッテン陸棚域における海洋観測を継続しています。鉛直採水やCTD観測に加え、係留観測による長期時系列データや高精度の海底地形データなど、他に類のない独自の観測データを取得・蓄積してきました。その主要な成果の一つとして、観測と数値モデルを組み合わせた研究により、沖合からトッテン棚氷に至る暖水の分布・循環像を初めて明らかにし、トッテン棚氷下へ流入する暖水の特性に大きな経年変動があることも示しました（<a href="https://doi.org/10.1038/s41467-023-39764-z" target="_blank" rel="noopener noreferrer">Hirano et al., 2023</a>）。さらに、氷河前面のトラフ最深部(暖水の主要な流路)における長期係留時系列データの解析から、底面融解強度を左右する棚氷下への海洋熱輸送量を初めて直接評価することに成功し、流入する暖水の特性が上流のダルトンポリニヤにおける海氷生産量の多寡と密接に関わっていることが明らかになりつつあります。</p>
-            <h4>白瀬氷河域(昭和基地近傍)</h4>
-            <p>リュツォ・ホルム湾におけるこれまでの限られた観測データを再解釈することから、底面融解プロセスに関する仮説の構築に着手しました。この仮説を検証するため、砕氷船「しらせ」による観測計画を立案・実施し、湾口から白瀬氷河前面に至る広域の海洋観測データと、アイスレーダーによる氷舌の氷厚時系列データの取得に成功しました。これら観測データの解析結果に基づき、数値モデルや測地・雪氷学分野との融合研究を行い、「沖合起源の暖水が白瀬氷河下に流入することで顕著な底面融解が生じ、その融解強度は卓越風による暖水の厚み（流入量）の季節変動を介してコントロールされる」というメカニズムを提唱しました（<a href="https://doi.org/10.1038/s41467-020-17527-4" target="_blank" rel="noopener noreferrer">Hirano et al., 2020</a>）。これは、西南極と比べて観測や理解が立ち遅れていた「東南極での暖水流入を伴う棚氷底面融解プロセス」に関する知見であり、日本による初めての氷床―海洋相互作用に関する観測研究成果となりました（IPCC第6次評価報告書に引用）。</p>
-          </article>
-
-          <article class="theme-card theme-card--full">
-            <h3>北極研究</h3>
-            <p>北米アラスカ沖で冬季に形成されるバロー沿岸ポリニヤは、これまで風や海流による海氷発散を主因とする「潜熱ポリニヤ」として理解されてきました。本研究では、ポリニヤ形成時の海洋内部の状況に着目し、係留観測、衛星海氷生産量データ、大気再解析データ、数値モデル結果を多角的に解釈しました。</p>
-            <div class="research-figure-grid" aria-label="バロー沿岸ポリニヤとアラスカ沿岸域の冬季水形成プロセスの模式図">
-              <figure class="research-figure">
-                <a href="assets/images/hybrid-Hirano2016-b-full.jpg" target="_blank" rel="noopener noreferrer" aria-label="バロー沿岸に形成されるハイブリッドポリニヤの形成プロセス図を拡大表示"><img src="assets/images/hybrid-Hirano2016-b-full.jpg" alt="バロー沿岸に形成されるハイブリッドポリニヤの形成プロセス" loading="lazy"></a>
-                <figcaption>バロー沿岸に形成されるハイブリッドポリニヤの形成プロセス（Hirano et al., 2016）。</figcaption>
-              </figure>
-              <figure class="research-figure">
-                <a href="assets/images/hybrid-Hirano2018.jpg" target="_blank" rel="noopener noreferrer" aria-label="アラスカ沿岸域における冬季水形成プロセス図を拡大表示"><img src="assets/images/hybrid-Hirano2018.jpg" alt="暖水湧昇の影響を受けたアラスカ沿岸域における固有の冬季水形成プロセス" loading="lazy"></a>
-                <figcaption>暖水湧昇の影響を受けたアラスカ沿岸域における固有の冬季水形成プロセス（Hirano et al., 2018）。</figcaption>
-              </figure>
-            </div>
-            <h4>「ハイブリッドポリニヤ」の提唱</h4>
-            <p>この海域で強い北東風が連吹すると、海氷発散による潜熱ポリニヤの形成(海氷生成を促進)とともに、北極海盆中層からの暖水(大西洋水)湧昇によって顕熱ポリニヤが形成(海氷生成を抑制)されるプロセスを伴うことを示し、バロー沿岸ポリニヤが「潜熱・顕熱ポリニヤ双方の特徴を併せ持つ特殊な"ハイブリッドポリニヤ"」であることを提唱しました（<a href="https://doi.org/10.1002/2015JC011318" target="_blank" rel="noopener noreferrer">Hirano et al., 2016</a>）。</p>
-            <h4>海氷生産および冬季水形成に対する暖水湧昇の影響</h4>
-            <p>さらに、バロー沿岸ポリニヤを含むアラスカ沿岸域の冬季水形成プロセスを詳細に解析し、この暖水湧昇の影響を強く受けて、当該海域に固有の冬季水が形成されることを示しました（<a href="https://doi.org/10.1029/2017JC013307" target="_blank" rel="noopener noreferrer">Hirano et al., 2018</a>）。</p>
-            <h4>長期係留観測が明らかにした海洋プレコンディションの役割</h4>
-            <p>2009〜2019年の10年間にわたる長期係留観測結果に基づき、海氷生産や冬季水形成といった冬季プロセスが、結氷開始前の秋季の水温・塩分場、すなわち海洋プレコンディションに強く依存することを明らかにしました。特に2016年以降は、夏から秋にかけての水温上昇とその長期化が、結氷開始の遅延と北極海盆域への海洋熱輸送の増大をもたらすことを示しました（<a href="https://doi.org/10.1016/j.pocean.2022.102781" target="_blank" rel="noopener noreferrer">Hirano et al., 2022</a>）。</p>
-            <h4>本研究による新たな視点</h4>
-            <p>本成果は、「沿岸ポリニヤ域では下方からの海洋熱の影響は無視できる」という従来の一般的な概念を覆すものです。海盆中層を起源とする暖水の3次元的な挙動の理解とその影響評価は、現在注力している「海洋による南極氷床融解プロセス」に関する研究構想の基盤にもなりました。</p>
-          </article>
-        </div>
-        <div class="more-pubs-link-wrap"><a class="button-link" href="publications.html">論文リストを見る →</a><a class="button-link" href="projects.html">プロジェクト一覧を見る →</a><a class="button-link" href="education.html">教育歴を見る →</a></div>
-      </div>
-    </section>
-
+    <section class="hero"><div class="container hero-grid"><div class="hero-text"><p class="eyebrow">Physical Oceanography · Polar Oceanography</p><h1>平野 大輔<span class="name-en">Daisuke HIRANO</span></h1><p class="affiliation">北海道大学 低温科学研究所<br>水・物質循環部門／大気海洋相互作用分野<br>准教授</p><p class="field">海洋物理学・極域海洋学</p></div><figure class="hero-photo"><img src="assets/images/profile.jpg" alt="第67次南極地域観測隊での観測風景" width="1620" height="1080"><figcaption>第67次南極地域観測隊にて</figcaption></figure></div></section>
+    <section id="news" class="section section-alt section--news"><div class="container"><h2 class="section-heading">News &amp; Topics</h2><div class="news-list"><article class="news-item"><span class="news-date">2026.09</span><span class="news-tag tag--info">お知らせ</span><div class="news-content">個人ウェブサイトを開設しました。</div></article><article class="news-item"><span class="news-date">2026.09</span><span class="news-tag tag--paper">論文出版</span><div class="news-content">共著論文（Watanabe et al.）が <em>Nature Communications</em> 誌に出版されました。<a href="https://www.nature.com/articles/s41467-026-77441-z" target="_blank" rel="noopener noreferrer">nature</a></div></article><article class="news-item"><span class="news-date">2026.09</span><span class="news-tag tag--paper">論文出版</span><div class="news-content">共著論文（Watanabe et al.）が <em>Scientific Reports</em> 誌に出版されました。<a href="https://doi.org/10.1038/s41598-026-67810-5" target="_blank" rel="noopener noreferrer">Scientific Reports</a></div></article><article class="news-item"><span class="news-date">2026.07.04</span><span class="news-tag tag--event">イベント</span><div class="news-content">日本科学未来館にて「<a href="https://www.miraikan.jst.go.jp/events/202607044597.html" target="_blank" rel="noopener noreferrer">研究者トーク＆南極ライブ中継！ 南極観測隊の仕事と生活</a>」に登壇しました。</div></article></div></div></section>
+    <section id="about" class="section"><div class="container"><h2 class="section-heading">研究紹介</h2><p class="lead">海洋物理学的アプローチから、北極・南極域における海洋と氷の相互作用を研究しています。極域では、海洋・海氷・氷床に急激な変化が生じていますが、特に、海洋が氷床や海氷を融かすメカニズム、そして極域特有の水塊形成・変質プロセスおよび海洋循環の解明に力を入れています。現場観測を研究の核としつつ、数値実験の結果や衛星観測プロダクトも組み合わせることで、現象の多角的・包括的な理解を目指しています。</p></div></section>
+    <section id="research" class="section section-alt"><div class="container"><h2 class="section-heading">研究テーマ</h2><div class="theme-stack">
+      <article class="theme-card theme-card--full"><h3>南極研究</h3><p>東南極沿岸域は、海氷生産が活発な沿岸ポリニヤが点在し、海洋の熱塩循環を駆動する低温・高密度の南極底層水が形成・沈み込む重要な海域を含んでいます。同時に、沖合を起源とする暖水である周極深層水の流入をきっかけに氷床の質量損失が加速する海域も局所的に存在するなど、海洋と雪氷圏が複雑に絡み合う領域です。白瀬氷河―リュツォ・ホルム湾、アメリー棚氷―ケープダンレーポリニヤ、トッテン氷河―ダルトンポリニヤ、メルツ氷河―メルツポリニヤという、東南極沿岸域を特徴づける主要海域を対象に研究を推進してきました。</p><h4>氷床と海洋の相互作用(棚氷融解プロセス)</h4><p>東南極沿岸域は、広く沖合の暖水から隔てられた「冷たい海」として特徴づけられ、氷舌や棚氷の底面融解は総じて弱く、西南極に比べて安定的な氷床と認識されていました。しかし近年、衛星観測データなどの解析から、白瀬氷河やトッテン氷河の周辺で局所的に東南極平均の10倍以上に達する底面融解強度が推定され、特に海面上昇に換算して4mに相当する氷量を持つトッテン氷河では顕著な質量損失が報告されるなど、東南極の一部でも氷床不安定化の兆しが現れつつあります。この課題に対し、英国・米国・豪州との国際共同研究を通じて、白瀬氷河やトッテン氷河域で生じている顕著な暖水流入を伴う氷床―海洋相互作用の実態解明に取り組んできました。</p><div class="research-figure-grid" aria-label="トッテン氷河と白瀬氷河の底面融解プロセスの模式図"><figure class="research-figure"><a href="assets/images/totten-ocean-circulation.png" target="_blank" rel="noopener noreferrer"><img src="assets/images/totten-ocean-circulation.png" alt="沖合からトッテン氷河へ向かう暖かい海水のルート" loading="lazy"></a><figcaption>沖合からトッテン氷河へ向かう暖かい海水のルート（Hirano et al., 2023）。</figcaption></figure><figure class="research-figure"><a href="assets/images/shirase-glacier-process.png" target="_blank" rel="noopener noreferrer"><img src="assets/images/shirase-glacier-process.png" alt="沖合の暖かい海水の流入によって生じる白瀬氷河の底面融解プロセス" loading="lazy"></a><figcaption>沖合の暖かい海水の流入によって生じる白瀬氷河の底面融解プロセス（Hirano et al., 2020）。</figcaption></figure></div><h4>トッテン氷河域(東南極最大級)</h4><p>2015年に豪州の研究グループが棚氷下への暖水流入を初めて観測（<a href="https://doi.org/10.1126/sciadv.1601610" target="_blank" rel="noopener noreferrer">Rintoul et al., 2016</a>）し、その後、日本もJAREの枠組みで2018年3月(JARE59)から本格的にトッテン観測に着手しました。水産庁の調査船「開洋丸」による南極航海では、氷河沖の陸棚端から大陸斜面にかけての詳細な海洋観測を実施し、氷河沖に定在する100〜200km規模の海洋渦が、沖合の暖水を大陸方向へ効率的に輸送していることを明らかにしました（<a href="https://doi.org/10.1038/s43247-021-00217-4" target="_blank" rel="noopener noreferrer">Hirano et al., 2021</a>）。また、JARE重点研究観測プロジェクトでは、現場観測を行う上で不可欠な海底地形すら未知だったトッテン氷河近傍域での研究を南極観測船「しらせ」により実現し、現在もトッテン陸棚域における海洋観測を継続しています。鉛直採水やCTD観測に加え、係留観測による長期時系列データや高精度の海底地形データなど、他に類のない独自の観測データを取得・蓄積してきました。その主要な成果の一つとして、観測と数値モデルを組み合わせた研究により、沖合からトッテン棚氷に至る暖水の分布・循環像を初めて明らかにし、トッテン棚氷下へ流入する暖水の特性に大きな経年変動があることも示しました（<a href="https://doi.org/10.1038/s41467-023-39764-z" target="_blank" rel="noopener noreferrer">Hirano et al., 2023</a>）。さらに、氷河前面のトラフ最深部(暖水の主要な流路)における長期係留時系列データの解析から、底面融解強度を左右する棚氷下への海洋熱輸送量を初めて直接評価することに成功し、流入する暖水の特性が上流のダルトンポリニヤにおける海氷生産量の多寡と密接に関わっていることが明らかになりつつあります。</p><h4>白瀬氷河域(昭和基地近傍)</h4><p>リュツォ・ホルム湾におけるこれまでの限られた観測データを再解釈することから、底面融解プロセスに関する仮説の構築に着手しました。この仮説を検証するため、砕氷船「しらせ」による観測計画を立案・実施し、湾口から白瀬氷河前面に至る広域の海洋観測データと、アイスレーダーによる氷舌の氷厚時系列データの取得に成功しました。これら観測データの解析結果に基づき、数値モデルや測地・雪氷学分野との融合研究を行い、「沖合起源の暖水が白瀬氷河下に流入することで顕著な底面融解が生じ、その融解強度は卓越風による暖水の厚み（流入量）の季節変動を介してコントロールされる」というメカニズムを提唱しました（<a href="https://doi.org/10.1038/s41467-020-17527-4" target="_blank" rel="noopener noreferrer">Hirano et al., 2020</a>）。これは、西南極と比べて観測や理解が立ち遅れていた「東南極での暖水流入を伴う棚氷底面融解プロセス」に関する知見であり、日本による初めての氷床―海洋相互作用に関する観測研究成果となりました（IPCC第6次評価報告書に引用）。</p></article>
+      <article class="theme-card theme-card--full"><h3>北極研究</h3><p>北米アラスカ沖で冬季に形成されるバロー沿岸ポリニヤは、これまで風や海流による海氷発散を主因とする「潜熱ポリニヤ」として理解されてきました。本研究では、ポリニヤ形成時の海洋内部の状況に着目し、係留観測、衛星海氷生産量データ、大気再解析データ、数値モデル結果を多角的に解釈しました。</p><div class="research-figure-grid" aria-label="バロー沿岸ポリニヤとアラスカ沿岸域の冬季水形成プロセスの模式図"><figure class="research-figure"><a href="assets/images/hybrid-Hirano2016.jpg" target="_blank" rel="noopener noreferrer" aria-label="バロー沿岸に形成されるハイブリッドポリニヤの形成プロセス図を拡大表示"><img src="assets/images/hybrid-Hirano2016.jpg" alt="バロー沿岸に形成されるハイブリッドポリニヤの形成プロセス" loading="lazy"></a><figcaption>バロー沿岸に形成されるハイブリッドポリニヤの形成プロセス（Hirano et al., 2016）。</figcaption></figure><figure class="research-figure"><a href="assets/images/hybrid-Hirano2018.jpg" target="_blank" rel="noopener noreferrer" aria-label="アラスカ沿岸域における冬季水形成プロセス図を拡大表示"><img src="assets/images/hybrid-Hirano2018.jpg" alt="暖水湧昇の影響を受けたアラスカ沿岸域における固有の冬季水形成プロセス" loading="lazy"></a><figcaption>暖水湧昇の影響を受けたアラスカ沿岸域における固有の冬季水形成プロセス（Hirano et al., 2018）。</figcaption></figure></div><h4>「ハイブリッドポリニヤ」の提唱</h4><p>この海域で強い北東風が連吹すると、海氷発散による潜熱ポリニヤの形成(海氷生成を促進)とともに、北極海盆中層からの暖水(大西洋水)湧昇によって顕熱ポリニヤが形成(海氷生成を抑制)されるプロセスを伴うことを示し、バロー沿岸ポリニヤが「潜熱・顕熱ポリニヤ双方の特徴を併せ持つ特殊な"ハイブリッドポリニヤ"」であることを提唱しました（<a href="https://doi.org/10.1002/2015JC011318" target="_blank" rel="noopener noreferrer">Hirano et al., 2016</a>）。</p><h4>海氷生産および冬季水形成に対する暖水湧昇の影響</h4><p>さらに、バロー沿岸ポリニヤを含むアラスカ沿岸域の冬季水形成プロセスを詳細に解析し、この暖水湧昇の影響を強く受けて、当該海域に固有の冬季水が形成されることを示しました（<a href="https://doi.org/10.1029/2017JC013307" target="_blank" rel="noopener noreferrer">Hirano et al., 2018</a>）。</p><h4>長期係留観測が明らかにした海洋プレコンディションの役割</h4><p>2009〜2019年の10年間にわたる長期係留観測結果に基づき、海氷生産や冬季水形成といった冬季プロセスが、結氷開始前の秋季の水温・塩分場、すなわち海洋プレコンディションに強く依存することを明らかにしました。特に2016年以降は、夏から秋にかけての水温上昇とその長期化が、結氷開始の遅延と北極海盆域への海洋熱輸送の増大をもたらすことを示しました（<a href="https://doi.org/10.1016/j.pocean.2022.102781" target="_blank" rel="noopener noreferrer">Hirano et al., 2022</a>）。</p><h4>本研究による新たな視点</h4><p>本成果は、「沿岸ポリニヤ域では下方からの海洋熱の影響は無視できる」という従来の一般的な概念を覆すものです。海盆中層を起源とする暖水の3次元的な挙動の理解とその影響評価は、現在注力している「海洋による南極氷床融解プロセス」に関する研究構想の基盤にもなりました。</p></article>
+    </div><div class="more-pubs-link-wrap"><a class="button-link" href="publications.html">論文リストを見る →</a><a class="button-link" href="projects.html">プロジェクト一覧を見る →</a><a class="button-link" href="education.html">教育歴を見る →</a></div></div></section>
     <section id="links" class="section"><div class="container"><h2 class="section-heading">外部リンク</h2><div class="link-list"><a href="https://researchmap.jp/DaisukeHirano" target="_blank" rel="noopener noreferrer">researchmap</a><a href="https://www.researchgate.net/profile/Daisuke-Hirano" target="_blank" rel="noopener noreferrer">ResearchGate</a><a href="https://orcid.org/0000-0002-8047-1544" target="_blank" rel="noopener noreferrer">ORCID</a></div></div></section>
     <section id="contact" class="section section-alt"><div class="container"><h2 class="section-heading">連絡先</h2><div class="contact-grid"><div class="contact-box"><p><strong>平野 大輔（ひらの だいすけ）</strong></p><p>北海道大学 低温科学研究所 水・物質循環部門<br>大気海洋相互作用分野・准教授</p><p>〒060-0819 札幌市北区北19条西8丁目</p><p>Email: hirano.daisuke [at] lowtem.hokudai.ac.jp</p></div><div class="map-box"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2914.021360446671!2d141.33623767614674!3d43.08304627113486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b2902c08e8e79%3A0x33913642dc379c74!2z44CSMDYwLTA4MTkg5YyX5rW36YGT5pyt5bmM5biC5YyX5Yy65YyX77yR77yZ5p2h6KW_77yY5LiB55uuIOS9jua4qeenkeWtpueglOeptuaJgA!5e0!3m2!1sja!2sjp!4v1789132147208!5m2!1sja!2sjp" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="北海道大学 低温科学研究所の所在地マップ"></iframe><div class="map-caption"><a href="https://maps.google.com/?q=%E5%8C%97%E6%B5%B7%E9%81%93%E5%A4%A7%E5%AD%A6%E4%BD%8E%E6%B8%A9%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E6%89%80" target="_blank" rel="noopener noreferrer">Google マップで拡大表示 →</a></div></div></div></div></section>
   </main>
