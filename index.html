@@ -71,9 +71,9 @@
     .theme-card--full a { color: var(--ocean); text-decoration: underline; text-underline-offset: 0.16em; font-weight: 500; }
     .theme-card--full a:hover { color: var(--navy); }
 
-    /* 研究テーマ内の解説図：PCでは本文幅のおよそ半分、スマホでは画面幅に追従 */
+    /* 研究テーマ内の解説図：従来より幅を約1割拡大（最大616px） */
     .research-figure {
-      width: min(100%, 600px);
+      width: min(100%, 660px);
       margin: 2.2rem auto 2.4rem;
       text-align: center;
       background: #fafcfd;
@@ -84,7 +84,7 @@
     }
     .research-figure img {
       display: block;
-      width: min(100%, 560px);
+      width: min(100%, 616px);
       height: auto;
       margin: 0 auto;
       border-radius: calc(var(--radius) - 6px);
