@@ -349,3 +349,17 @@ a:hover {
 .hero .name-en { margin-top: 7px; font-size: clamp(0.98rem, 1.7vw, 1.18rem); letter-spacing: 0.065em; }
 .hero .affiliation { margin: 20px 0 0; color: var(--ink); font-size: clamp(0.98rem, 1.45vw, 1.08rem); line-height: 1.75; }
 @media (max-width: 760px) { .hero-identity { padding-bottom: 18px; } .hero .field { margin-bottom: 12px; } .hero .affiliation { margin-top: 16px; } }
+
+
+/* Access map refinement */
+.map-box { position: relative; overflow: hidden; padding: 8px; border: 1px solid rgba(15, 95, 120, .18); border-radius: var(--radius); box-shadow: 0 14px 30px rgba(11, 45, 69, .12); background: var(--white); }
+.map-box iframe { display: block; width: 100%; height: 290px; border: 0; border-radius: calc(var(--radius) - 8px); transition: transform .35s ease; }
+.map-box:hover iframe { transform: scale(1.018); }
+.map-label { position: absolute; z-index: 1; top: 22px; left: 22px; display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 9px; color: var(--navy); background: rgba(255,255,255,.93); box-shadow: 0 4px 14px rgba(11,45,69,.15); line-height: 1.25; }
+.map-label span { color: var(--ocean); font-size: .85rem; }
+.map-label small { display: block; color: var(--ocean); font-size: .65rem; font-weight: 700; letter-spacing: .12em; }
+.map-label strong { display: block; margin-top: 2px; font-size: .78rem; }
+.map-caption { position: absolute; z-index: 1; right: 20px; bottom: 20px; margin: 0; font-size: .82rem; }
+.map-caption a { display: inline-block; padding: 7px 12px; border-radius: 999px; color: var(--navy); background: rgba(255,255,255,.93); box-shadow: 0 4px 14px rgba(11,45,69,.15); font-weight: 700; text-decoration: none; }
+.map-caption a:hover, .map-caption a:focus-visible { color: var(--white); background: var(--ocean); }
+@media (max-width: 768px) { .map-box iframe { height: 230px; } .map-label { top: 16px; left: 16px; } .map-caption { right: 16px; bottom: 16px; } .map-label strong { font-size: .72rem; } }
